@@ -1,0 +1,21 @@
+.homepage {
+  width: 100%;
+}
+
+.description {
+  text-align: center;
+}
+
+.chart-container {
+  width: 100%;
+}
+
+.chart-container p {
+  text-align: center;
+  font-weight: bold;
+}
+
+.cta-container {
+  width: 100%;
+  text-align: center;
+}

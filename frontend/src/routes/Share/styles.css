@@ -1,0 +1,17 @@
+.share {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.share p {
+  margin: 10px 0;
+  font-size: 3rem;
+  line-height: 1.25;
+  letter-spacing: -0.1rem;
+}
