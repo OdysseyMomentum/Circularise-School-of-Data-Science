@@ -1,0 +1,30 @@
+.CTA {
+	margin: 10px;
+	color: #fff;
+	font-size: 1.2em;
+	border-radius: 10px;
+	cursor: pointer;
+	opacity: 1;
+	transition: all 0.2s;
+}
+
+.CTA:hover {
+	opacity: 0.9;
+}
+
+.CTA--orange {
+	background-color: #e8972c;
+	border-color: #e8972c;
+}
+.CTA--blue {
+	background-color: #305c99;
+	border-color: #305c99;
+}
+
+.CTA--medium {
+	padding: 8px 15px;
+}
+
+.CTA--large {
+	padding: 10px 20px;
+}
