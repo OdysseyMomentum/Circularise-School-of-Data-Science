@@ -1,9 +1,14 @@
 from fastapi import FastAPI
-from sms import sender
+from bot import sms_bot, call_bot
 
 app = FastAPI()
 
-@app.get('/')
+@app.get('/message')
 def message():
-    sid = sender.send_message('Triggered via API', '+31623129754')
+    sid = sms_bot.send_message('Triggered via API', '+31623129754')
+    return {'sid': sid}
+
+@app.get('/call')
+def call():
+    sid = call_bot.call('+31623129754')
     return {'sid': sid}
