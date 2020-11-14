@@ -2,6 +2,7 @@
 
 # dependencies
 /frontend/node_modules
+/mobile-frontend/mobile-frontend/node_modules
 
 # testing
 
@@ -21,3 +22,5 @@
 /frontend/yarn.lock
 /frontend/package-lock.json
 /frontend/.netlify
+
+**/__pycache__

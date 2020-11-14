@@ -1,0 +1,5 @@
+fastapi
+pdfkit
+pydantic
+uvicorn
+jinja2

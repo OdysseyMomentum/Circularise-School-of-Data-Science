@@ -1,0 +1,23 @@
+img {
+	width: 100%
+}
+.main-div {
+	height:100vh;
+	background-image: url("/assets/images/bg.jpg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	/*background: #f00;*/
+	/*background-image: 'assets/images/bg.jpg';*/
+}
+:host {
+	/*background-image: url("/assets/images/bg.jpg");*/
+}
+button{
+	width:100%;
+}
+mat-menu{
+	width:100%;
+}
+.spacer-top{
+	height:100px;
+}
