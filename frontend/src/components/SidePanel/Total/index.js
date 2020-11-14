@@ -5,7 +5,9 @@ export default class Total extends React.Component {
   render() {
     return (
       <div className="total">
-        <p>This is the total</p>
+        <p>Total volume: {this.props.totalKg}</p>
+        <p>WP Score: {this.props.totalScore}</p>
+        <p>Price: {this.props.totalPrice}</p>
       </div>
     );
   }

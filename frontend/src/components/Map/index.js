@@ -12,9 +12,9 @@ export default class Map extends React.Component {
   };
 
   state = {
-    lat: 38.909671,
-    lng: -77.034084,
-    zoom: 14,
+    lat: 38.8966,
+    lng: -77.0664,
+    zoom: 10,
   };
 
   componentDidMount() {
