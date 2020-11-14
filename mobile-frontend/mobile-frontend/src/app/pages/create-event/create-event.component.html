@@ -1,0 +1,53 @@
+<h1> Event </h1>
+<hr/>
+<h2> Details </h2>
+<div class="row main-div" >
+  	<div class="col-1 col-md-3 col-sm-1"></div>
+	<div class="col-10 col-md-6 col-sm-10">
+		<mat-form-field appearance="fill">
+			<mat-label>Name</mat-label>
+			<input matInput>
+		</mat-form-field>
+		<mat-form-field appearance="fill">
+			<mat-label>Location</mat-label>
+			<input matInput>
+		</mat-form-field>
+		<mat-form-field appearance="fill">
+			<mat-label>Date & time</mat-label>
+			<input matInput type="date">
+		</mat-form-field>
+		<mat-form-field appearance="fill">
+			<mat-label>Waste streams</mat-label>
+			<input matInput>
+		</mat-form-field>
+	</div>
+  	<div class="col-1 col-md-3 col-sm-1"></div>
+</div>
+<hr/>
+<h2> Particpants </h2>
+<div class=" pickers-list">
+	<div class="row" >
+		<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
+		<div class="col-10 col-lg-4 col-md-6 col-sm-10">
+			<div class="avatars">
+			<div *ngFor="let people of people" class="avatar-holder">
+				<img [src]="people.image" class="avatar">
+				<br/>
+				<label class="avatar-name">{{people.name}}</label>
+			</div>
+		</div>
+		<!-- <span class="avatar"> + </span> -->
+		<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
+	</div>
+</div>	
+
+
+<div class="row" >
+	<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
+	<div class="col-10 col-lg-4 col-md-6 col-sm-10">
+		<br/>
+		<button mat-raised-button class="button create-event-button" [routerLink]="['/active_event']">Create</button>
+	</div>
+	<!-- <span class="avatar"> + </span> -->
+	<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
+</div>
