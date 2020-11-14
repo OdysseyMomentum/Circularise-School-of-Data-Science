@@ -5,7 +5,6 @@ import mapboxgl from "mapbox-gl";
 
 import mockData from "../../assets/data/mockData.geojson";
 import markerIcon from "../../assets/icons/marker.png";
-import markerIconGrey from "../../assets/icons/markerGrey.png";
 
 export default class Map extends React.Component {
   static propTypes = {
@@ -20,10 +19,29 @@ export default class Map extends React.Component {
   };
 
   flyToMarker = (currentFeature) => {
+    // Center the map view on a specific pin
     this.state.map.flyTo({
       center: currentFeature.geometry.coordinates,
       zoom: 15,
     });
+
+    // Create a popup with more infos
+    // Hacky way to remove previously created popup
+    var popUps = document.getElementsByClassName("mapboxgl-popup");
+    if (popUps[0]) popUps[0].remove();
+
+    new mapboxgl.Popup({ closeOnClick: false })
+      .setLngLat(currentFeature.geometry.coordinates)
+      .setHTML(
+        `<h3>Additional infos</h3>
+        <h4>
+          ${currentFeature.properties.address}
+        </h4>
+        <h4>
+          ${currentFeature.properties.weight}kg
+        </h4>`
+      )
+      .addTo(this.state.map);
   };
 
   addMarkers = (data) => {
@@ -37,27 +55,8 @@ export default class Map extends React.Component {
       new mapboxgl.Marker(el, { offset: [0, -23] })
         .setLngLat(marker.geometry.coordinates)
         .addTo(that.state.map);
-
-      // /**
-      //  * Listen to the element and when it is clicked, do three things:
-      //  * 1. Fly to the point
-      //  * 2. Close all other popups and display popup for clicked store
-      //  * 3. Highlight listing in sidebar (and remove highlight for all other listings)
-      // **/
       el.addEventListener("click", function (e) {
         that.flyToMarker(marker);
-        // map.flyTo({
-        //   center: marker.geometry.coordinates,
-        //   zoom: 15,
-        // });
-        // createPopUp(marker);
-        // var activeItem = document.getElementsByClassName('active');
-        // e.stopPropagation();
-        // if (activeItem[0]) {
-        //   activeItem[0].classList.remove('active');
-        // }
-        // var listing = document.getElementById('listing-' + marker.properties.id);
-        // listing.classList.add('active');
       });
     });
   };

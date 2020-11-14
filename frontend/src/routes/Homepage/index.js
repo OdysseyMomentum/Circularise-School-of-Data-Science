@@ -6,6 +6,8 @@ import SidePanel from "../../components/SidePanel";
 import Map from "../../components/Map";
 import UserPanel from "../../components/UserPanel";
 
+import { withWindowDimensions } from "../../helpers";
+
 class Homepage extends React.Component {
   static propTypes = {
     history: PropTypes.object,
@@ -30,7 +32,12 @@ class Homepage extends React.Component {
 
   render() {
     return (
-      <div className="homepage">
+      <div
+        className="homepage"
+        style={{
+          height: `${this.props.windowHeight}px`,
+        }}
+      >
         <SidePanel
           callFlyToMarker={this.callFlyToMarker}
           mockData={this.state.mockData}
@@ -42,4 +49,4 @@ class Homepage extends React.Component {
   }
 }
 
-export default Homepage;
+export default withWindowDimensions(Homepage);
