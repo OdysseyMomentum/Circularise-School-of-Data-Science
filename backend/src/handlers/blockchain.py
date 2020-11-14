@@ -1,10 +1,26 @@
+import io
+
 from fastapi import FastAPI, Query, Request, BackgroundTasks, Header, Depends
-from fastapi.responses import JSONResponse
+from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 
 from utils.smart_contract import contract_instance
+from utils.pdf import PdfInput, generate_pdf_certificate
 
 blockchain = FastAPI(openapi_url=None, redoc_url=None, docs_url=None
                      )
+
+
+@blockchain.post('/certificate')
+def get_certificate(request: Request, data: PdfInput):
+    print(data)
+    cert = generate_pdf_certificate(data)
+
+    with open('testpdf.pdf', 'wb') as file:
+        file.write(cert)
+
+    # print(cert)
+    cert_file = io.BytesIO(cert)
+    return StreamingResponse(cert_file)
 
 
 @blockchain.get('/balances')
@@ -49,5 +65,7 @@ def post_mint(request: Request):
 
     if not minted:
         return JSONResponse({'minted': False}, status_code=409)
+
+    
 
     return JSONResponse({'minted': True, 'txnReceipt': receipt})
