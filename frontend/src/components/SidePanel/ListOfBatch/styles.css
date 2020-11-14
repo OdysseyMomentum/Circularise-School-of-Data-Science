@@ -1,2 +1,4 @@
-.list-batch {
+.listings {
+  height: 400px;
+  overflow: scroll;
 }

@@ -1,2 +1,35 @@
-.batch {
+.item {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.item:hover {
+  cursor: pointer;
+}
+
+.item p {
+  margin: 0;
+}
+
+.item:last-child {
+  border-bottom: 1px solid #000;
+}
+
+.item .title {
+  display: block;
+  color: #00853e;
+  font-weight: 700;
+}
+
+.item:hover .title {
+  color: #8cc63f;
+}
+
+.item--selected {
+  background-color: #000;
 }

@@ -1,3 +1,7 @@
-.header {
-  text-align: center;
+.user-panel {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: white;
+  padding: 20px;
 }

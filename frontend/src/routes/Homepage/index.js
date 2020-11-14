@@ -1,6 +1,7 @@
 import React from "react";
 import "./styles.css";
 import PropTypes from "prop-types";
+
 import SidePanel from "../../components/SidePanel";
 import Map from "../../components/Map";
 import UserPanel from "../../components/UserPanel";
@@ -13,13 +14,18 @@ class Homepage extends React.Component {
   state = {
     name: "Adrien Rahier",
     height: "190",
+    mockData: "",
+  };
+
+  setData = (mockData) => {
+    this.setState({ mockData });
   };
 
   render() {
     return (
       <div className="homepage">
-        <SidePanel />
-        <Map />
+        <SidePanel mockData={this.state.mockData} />
+        <Map setData={this.setData} />
         <UserPanel />
       </div>
     );
