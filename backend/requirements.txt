@@ -3,3 +3,4 @@ pdfkit
 pydantic
 uvicorn
 jinja2
+web3

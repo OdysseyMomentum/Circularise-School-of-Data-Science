@@ -1,0 +1,84 @@
+<h1> Scoring </h1>
+
+
+<hr/>
+<h2>Environment</h2>
+<div class="row" >
+	<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
+	<div class="col-10 col-lg-4 col-md-6 col-sm-10">
+		<div *ngFor="let environment_item of environment_items">
+			<mat-card [routerLink]="['/score_item/child_labor']">
+				<div class="left">
+					{{environment_item.name}}
+				</div>
+				<div class="right">
+					{{environment_item.points | number :'1.0-1'}}
+				</div>
+			</mat-card>
+		</div>
+		<br/>
+		<div class="left">
+			&nbsp; &nbsp; Total
+		</div>
+		<div class="right">
+			{{environment_items_total | number :'1.0-1'}} &nbsp; &nbsp; 
+		</div>
+	</div>
+	<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
+</div>
+
+
+<hr/>
+<h2>Impact</h2>
+<div class="row" >
+	<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
+	<div class="col-10 col-lg-4 col-md-6 col-sm-10">
+		<div *ngFor="let impact_item of impact_items">
+			<mat-card [routerLink]="['/score_item/child_labor']">
+				<div class="left">
+					{{impact_item.name}}
+				</div>
+				<div class="right">
+					{{impact_item.points | number :'1.0-1'}}
+				</div>
+			</mat-card>
+		</div>
+		<br/>
+		<div class="left">
+			&nbsp; &nbsp; Total
+		</div>
+		<div class="right">
+			{{impact_items_total | number :'1.0-1' }} &nbsp; &nbsp; 
+		</div>
+	</div>
+	<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
+</div>
+
+
+<hr/>
+<h2>Social</h2>
+<div class="row" >
+	<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
+	<div class="col-10 col-lg-4 col-md-6 col-sm-10">
+		<div *ngFor="let social_item of social_items">
+			<mat-card [routerLink]="['/score_item/child_labor']">
+				<div class="left">
+					{{social_item.name}}
+				</div>
+				<div class="right">
+					{{social_item.points | number :'1.0-1'}}
+				</div>
+			</mat-card>
+		</div>
+		<br/>
+		<div class="left">
+			&nbsp; &nbsp; Total
+		</div>
+		<div class="right">
+			{{social_items_total | number :'1.0-1'}} &nbsp; &nbsp; 
+		</div>
+	</div>
+	<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
+</div>
+
+<br/>

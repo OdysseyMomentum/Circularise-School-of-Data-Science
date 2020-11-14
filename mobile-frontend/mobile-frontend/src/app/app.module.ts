@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthenticationPageComponent } from './pages/authentication-pages/authentication-page/authentication-page.component';
@@ -9,9 +8,22 @@ import { SignupPageComponent } from './pages/authentication-pages/signup-page/si
 import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCardModule} from '@angular/material/card';
+// import { MatFormFieldModule } from '@angular/material/form-field';
+
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import { HomeComponent } from './pages/home/home.component';
+import { ScorePageComponent } from './pages/score-page/score-page.component';
+import { ScoreItemPageComponent } from './pages/score-item-page/score-item-page.component';
+import { ScoresPageComponent } from './pages/scores-page/scores-page.component';
+import { ScoreSubItemPageComponent } from './pages/score-sub-item-page/score-sub-item-page.component';
 // import {MatGridListModule} from '@angular/material/grid-list';
 
 
@@ -21,17 +33,29 @@ import {MatButtonModule} from '@angular/material/button';
     AuthenticationPageComponent,
     LoginPageComponent,
     SignupPageComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent,
+    ScorePageComponent,
+    ScoreItemPageComponent,
+    ScoresPageComponent,
+    ScoreSubItemPageComponent
   ],
   imports: [
+    MatInputModule,
     MatToolbarModule,
     MatMenuModule,
     MatButtonModule,
+    MatFormFieldModule,
+    MatSelectModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatCardModule,
     // MatGridListModule
   ],
+  exports:[MatInputModule, MatFormFieldModule],
   providers: [],
   bootstrap: [AppComponent]
 })
