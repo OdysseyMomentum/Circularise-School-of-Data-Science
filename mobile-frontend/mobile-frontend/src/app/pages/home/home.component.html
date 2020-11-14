@@ -1,1 +1,40 @@
 <h1>Home</h1>
+
+<h2>Pickers</h2>
+<hr/>
+<div class=" pickers-list">
+	<div class="row" >
+		<div class="col-1 col-md-3 col-sm-1"></div>
+		<div class="col-10 col-md-6 col-sm-10">
+		<span *ngFor="let people of people">
+			<div class="avatar-holder">
+				<img [src]="people.image" class="avatar">
+				<br/>
+				<label class="avatar-name">{{people.name}}</label>
+			</div>
+		</span>
+		<!-- <span class="avatar"> + </span> -->
+		<div class="col-1 col-md-3 col-sm-1"></div>
+	</div>
+</div>	
+<br/>
+<h2>Events</h2>
+<hr/>
+<div class="row" >
+	<div class="col-2 col-md-4 col-sm-2"></div>
+	<div class="col-8 col-md-4 col-sm-8">
+	<button mat-raised-button class="button active-event-button" [routerLink]="['/']">Active event</button>
+	<br/>
+	<br/>
+	<button mat-raised-button class="button" [routerLink]="['/']">Team scores</button>
+	<br/>
+	<br/>
+	<button mat-raised-button class="button" [routerLink]="['/']">Past events</button>
+	<br/>
+	<br/>
+	<button mat-raised-button class="button" [routerLink]="['/']">Create event</button>
+	<br/>
+	<br/>
+	<div class="col-2 col-md-4 col-sm-2"></div>
+	</div>
+</div>	

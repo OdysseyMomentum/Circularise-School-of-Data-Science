@@ -2,3 +2,30 @@
 h1{
 	text-align: center;
 }
+
+h2{
+	text-align: center;
+}
+.pickers-list{
+	display: block;
+}
+.avatar {
+  border-radius: 50%;
+  width:80px;
+  margin:10px;
+}
+.button{
+	width:100%;
+}
+.active-event-button{
+	height:100px;
+	background-color:#90EE90;
+}
+.avatar-holder{
+	display:inline-block;
+}
+.avatar-name{
+	text-align: center;
+	font-weight: bold;
+	width:100%;
+}
