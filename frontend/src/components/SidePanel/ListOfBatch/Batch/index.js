@@ -6,9 +6,12 @@ export default class Batch extends React.Component {
     isSelected: false,
   };
 
-  selectBatch = (properties) => {
+  selectBatch = () => {
+    this.props.callFlyToMarker(this.props.feature);
     this.props.updateTotalKg(
-      this.state.isSelected ? -properties.weight : properties.weight
+      this.state.isSelected
+        ? -this.props.feature.properties.weight
+        : this.props.feature.properties.weight
     );
     this.setState({ isSelected: !this.state.isSelected });
   };
@@ -17,10 +20,10 @@ export default class Batch extends React.Component {
     return (
       <li
         className={`item ${this.state.isSelected ? "item--selected" : ""}`}
-        onClick={() => this.selectBatch(this.props.properties)}
+        onClick={() => this.selectBatch()}
       >
-        <p className="title">{this.props.properties.name}</p>
-        <p>Weight: {this.props.properties.weight}</p>
+        <p className="title">{this.props.feature.properties.name}</p>
+        <p>Weight: {this.props.feature.properties.weight}</p>
       </li>
     );
   }

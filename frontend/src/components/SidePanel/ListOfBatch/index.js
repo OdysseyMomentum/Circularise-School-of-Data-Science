@@ -12,9 +12,9 @@ export default class ListOfBatch extends React.Component {
             updateTotalKg={this.props.updateTotalKg}
             updateTotalPrice={this.props.updateTotalPrice}
             updateTotalScore={this.props.updateTotalScore}
-            mockData={this.props.mockData}
+            callFlyToMarker={this.props.callFlyToMarker}
             key={key}
-            properties={this.props.mockData[key]["properties"]}
+            feature={this.props.mockData[key]}
           />
         ))}
       </ul>

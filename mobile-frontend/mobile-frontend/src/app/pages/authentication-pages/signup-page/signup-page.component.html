@@ -1,21 +1,20 @@
 <h1>Sign up</h1>
 <div class="row main-div" >
-  <div class="col-1 col-md-3 col-sm-1"></div>
+	<div class="col-1 col-md-3 col-sm-1"></div>
 	<div class="col-10 col-md-6 col-sm-10">
 		<div class="spacer-top"></div>
 		<div class="example-container">
-			<br/>
+		  <br/>
 		  <mat-form-field appearance="fill">
 		    <mat-label>Name</mat-label>
 		    <input matInput required>
 		  </mat-form-field>
 		  <br>
-<!-- 		  <mat-form-field appearance="fill">
+			  <mat-form-field appearance="fill">
 		    <mat-label>Email</mat-label>
-		    <input matInput required type="email" placeholder="pat@example.com" [formControl]="email">
-		    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+		    <input matInput required type="email" placeholder="pat@example.com">
 		  </mat-form-field>
-		  <br> -->
+		  <br>
 		  <mat-form-field appearance="fill">
 		    <mat-label>Address</mat-label>
 		    <input matInput required>
@@ -35,7 +34,17 @@
 		    <mat-label>Business details</mat-label>
 		    <input matInput>
 		  </mat-form-field>
-<!-- 		  <mat-form-field appearance="fill">
+		  <br>
+		  <mat-form-field appearance="fill">
+		    <mat-label>Password</mat-label>
+		    <input matInput required>
+		  </mat-form-field>
+		  <br>
+		  <mat-form-field appearance="fill">
+		    <mat-label>Confirm password</mat-label>
+		    <input matInput required>
+		  </mat-form-field>
+	<!-- 		  <mat-form-field appearance="fill">
 		    <mat-label>Select</mat-label>
 		    <mat-select>
 		      <mat-option value="option">Option</mat-option>
@@ -49,5 +58,5 @@
 		  <button mat-raised-button [routerLink]="['/']">Sign up</button>
 		</div>
 	</div>
-  <div class="col-1 col-md-3 col-sm-1"></div>
+	<div class="col-1 col-md-3 col-sm-1"></div>
 </div>

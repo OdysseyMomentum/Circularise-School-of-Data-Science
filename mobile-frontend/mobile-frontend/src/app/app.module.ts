@@ -14,11 +14,16 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCardModule} from '@angular/material/card';
 // import { MatFormFieldModule } from '@angular/material/form-field';
 
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import { HomeComponent } from './pages/home/home.component';
+import { ScorePageComponent } from './pages/score-page/score-page.component';
+import { ScoreItemPageComponent } from './pages/score-item-page/score-item-page.component';
+import { ScoresPageComponent } from './pages/scores-page/scores-page.component';
+import { ScoreSubItemPageComponent } from './pages/score-sub-item-page/score-sub-item-page.component';
 // import {MatGridListModule} from '@angular/material/grid-list';
 
 
@@ -29,7 +34,11 @@ import { HomeComponent } from './pages/home/home.component';
     LoginPageComponent,
     SignupPageComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    ScorePageComponent,
+    ScoreItemPageComponent,
+    ScoresPageComponent,
+    ScoreSubItemPageComponent
   ],
   imports: [
     MatInputModule,
@@ -43,6 +52,7 @@ import { HomeComponent } from './pages/home/home.component';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
+    MatCardModule,
     // MatGridListModule
   ],
   exports:[MatInputModule, MatFormFieldModule],

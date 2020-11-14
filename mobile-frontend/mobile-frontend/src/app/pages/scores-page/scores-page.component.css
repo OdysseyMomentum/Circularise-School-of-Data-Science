@@ -1,0 +1,27 @@
+
+h1{
+	text-align: center;
+}
+
+h2{
+	text-align: center;
+}
+
+mat-card{
+	height:50px;
+	margin-bottom: 2px;
+}
+mat-card:hover{
+	background-color:#add;
+	cursor: pointer;
+}
+
+.left{
+	/*display: inline-block;*/
+	float:left;
+}
+
+.right{
+	/*display: inline-block;*/
+	float:right;
+}

@@ -30,6 +30,7 @@ export default class SidePanel extends React.Component {
           updateTotalKg={this.updateTotalKg}
           updateTotalPrice={this.updateTotalPrice}
           updateTotalScore={this.updateTotalScore}
+          callFlyToMarker={this.props.callFlyToMarker}
           mockData={this.props.mockData}
         />
         <Total
