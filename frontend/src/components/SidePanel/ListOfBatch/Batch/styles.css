@@ -1,2 +1,10 @@
-.batch {
+.item {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  border: 1px solid #000;
+}
+
+.item p {
+  margin: 0;
 }
