@@ -1,17 +1,9 @@
-app-header{
-	/*height:60px;*/
+mat-form-field{
 	width:100%;
-	display: block;
 }
-
-.content{
-	background-image: url("/assets/images/mechpunk logo.jpeg");
-	background-size: 100vw 100vh;
-	height:calc(100vh - 65px);
-	overflow-x: hidden;
+button{
+	width:100%;
 }
-
-.content-2{
-	background-color: #5555;
-	height:calc(100%);
+h1{
+	text-align: center;
 }
