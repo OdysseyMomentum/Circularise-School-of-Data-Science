@@ -28,5 +28,4 @@ class PdfInput(BaseModel):
 
 def generate_pdf_certificate(input: PdfInput):
     html: str = certificate_template.render(title="test Hello PDF!")
-    print(html)
     return pdfkit.from_string(html, False)
