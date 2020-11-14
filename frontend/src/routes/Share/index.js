@@ -1,52 +1,23 @@
 import React from "react";
 import "./styles.css";
 import PropTypes from "prop-types";
-import Header from "../../components/Header";
-import CTA from "../../components/CTA";
+import SidePanel from "../../components/SidePanel";
+import Map from "../../components/Map";
+import UserPanel from "../../components/UserPanel";
 
-export default class Share extends React.Component {
+class Share extends React.Component {
   static propTypes = {
-    location: PropTypes.object,
     history: PropTypes.object,
   };
 
-  openFacebookPopup = () => {
-    window.open(
-      "https://www.facebook.com/sharer.php?u=http://adrierahier.work/",
-      "_blank",
-      "width=400,height=500"
-    );
-  };
-
-  goToHome = () => {
-    this.props.history.push({
-      pathname: "/",
-    });
+  state = {
+    name: "Adrien Rahier",
+    height: "190",
   };
 
   render() {
-    return (
-      <div className="share">
-        <Header />
-        <p>
-          Name: {this.props.location.state[0].name}, Height:{" "}
-          {this.props.location.state[0].height}
-        </p>
-        <CTA
-          text="Post on facebook"
-          type="button"
-          onClick={this.openFacebookPopup}
-          buttonSize="medium"
-          buttonColor="blue"
-        />
-        <CTA
-          text="Go back home"
-          type="button"
-          onClick={this.goToHome}
-          buttonSize="large"
-          buttonColor="orange"
-        />
-      </div>
-    );
+    return <div className="share">This is the share page</div>;
   }
 }
+
+export default Share;
