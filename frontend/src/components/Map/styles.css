@@ -1,7 +1,10 @@
 .map {
-  text-align: center;
   position: relative;
+  width: 60%;
   height: 400px;
+  top: auto;
+  left: auto;
+  bottom: auto;
 }
 
 .mapContainer {
