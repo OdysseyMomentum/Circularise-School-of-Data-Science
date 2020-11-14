@@ -1,5 +1,6 @@
 import os
 import json
+import random
 from twilio.rest import Client
 
 class TwilioBot():
@@ -7,7 +8,13 @@ class TwilioBot():
         self.client = Client(sid, auth_token)
         self.from_ = from_
 
-    def send_message(self, body, to):
+    def send_message(self, to):
+        first = random.randrange(10)
+        second = random.randrange(10)
+        third = random.randrange(10)
+
+        body = f'Your numbers are: {first} {second} {third}'
+
         message = self.client.messages.create(
             body=body,
             from_=self.from_,
@@ -18,21 +25,13 @@ class TwilioBot():
 
     def call(self, to):    
         call = self.client.calls.create(
-            url='http://demo.twilio.com/docs/voice.xml',
-            # url='https://circularise-logos.s3.eu-west-3.amazonaws.com/test.xml',
+            twiml='<Response><Gather action="/results" method="POST" input="speech" timeout="5" finishOnKey="#" numDigits="3"><Say>Please pronounce the words sent to you by SMS</Say></Gather></Response>',
             to=to,
             from_=self.from_,
-            record=True
         )
 
+        print(call)
         return call.sid
-
-class XMLGenerator():
-    def __init__(self):
-        with open('words.json', 'r') as file:
-            words = file.read()
-        self.words = json.loads(words)
-        print(json.dumps(self.words, indent=4))
 
 
 SID = 'AC868cb50af81ae922f12c63ae6cf59c01'
@@ -45,4 +44,3 @@ from_2 = '+12056547897'
 
 sms_bot = TwilioBot(SID, TOKEN, from_)
 call_bot = TwilioBot(SID_2, TOKEN_2, from_2)
-xml_gen = XMLGenerator()
