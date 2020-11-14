@@ -1,24 +1,13 @@
-from fastapi import FastAPI, Body, Request
+from fastapi import FastAPI, Response
 
 from handlers.blockchain import blockchain
-from utils.bot import sms_bot, call_bot
+from utils.pdf import PdfInput, generate_pdf_certificate
 
 app = FastAPI()
-
-@app.get('/message')
-def message():
-    sid = sms_bot.send_message('+31623129754')
-    return {'sid': sid}
-
-@app.get('/call')
-def call():
-    sid = call_bot.call('+31623129754')
-    return {'sid': sid}
-
-# @app.post('/results')
-# def results(request: Request, SpeechResult = Body(...), Confidence = Body(...)):
-#     print(SpeechResult, Confidence)
-#     return {'message': 'ok'}
+app.mount("/blockchain", blockchain)
 
 
-app.mount('/blockchain', blockchain)
+@app.post("/generate-pdf/")
+def generate_pdf(pdf_input: PdfInput):
+    pdf_file = generate_pdf_certificate(pdf_input)
+    return Response(content=pdf_file, media_type="application/pdf")
