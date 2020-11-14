@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatMenuTrigger } from '@angular/material/menu';
 
 @Component({
   selector: 'app-authentication-page',
@@ -11,5 +12,6 @@ export class AuthenticationPageComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
 }
