@@ -12,8 +12,6 @@ class Homepage extends React.Component {
   };
 
   state = {
-    name: "Adrien Rahier",
-    height: "190",
     mockData: "",
   };
 

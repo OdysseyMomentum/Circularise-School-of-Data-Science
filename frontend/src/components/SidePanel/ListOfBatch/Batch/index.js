@@ -7,6 +7,7 @@ export default class Batch extends React.Component {
   };
 
   selectBatch = (properties) => {
+    // this.props.flyToStore();
     this.props.updateTotalKg(
       this.state.isSelected ? -properties.weight : properties.weight
     );
