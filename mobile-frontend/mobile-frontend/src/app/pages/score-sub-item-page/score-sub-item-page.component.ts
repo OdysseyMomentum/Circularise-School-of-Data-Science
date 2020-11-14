@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HeaderService } from "../../header/header.service";
 
 @Component({
   selector: 'app-score-sub-item-page',
@@ -13,7 +14,8 @@ export class ScoreSubItemPageComponent implements OnInit {
 		"text": "Request a check by a NGO to verify your practices. This organisation can give you points for multiple aspects if you mean the criteria",
 		"effects": [{
 			"name": "Child labor",
-			"points": 3
+			"points": 3,
+			// "max_points": 7,
 		},{
 			"name": "Transparency",
 			"points": 4
@@ -29,9 +31,11 @@ export class ScoreSubItemPageComponent implements OnInit {
 		}]
 	}
 
-  constructor() { }
+  constructor(
+  	private headerService: HeaderService) { }
 
   ngOnInit(): void {
+    this.headerService.setHeaderBack("/score_item/child_labor");
   }
 
 

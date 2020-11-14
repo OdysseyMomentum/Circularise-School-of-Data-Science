@@ -25,3 +25,7 @@ mat-card:hover{
 	/*display: inline-block;*/
 	float:right;
 }
+.total{
+	text-align: center;
+	font-size: 20px;
+}

@@ -1,5 +1,31 @@
 <h1> Scoring </h1>
+<div class="total"> {{total | number :'1.0-1' }} / {{max_total | number :'1.0-1' }} </div>
 
+<hr/>
+<h2>Social</h2>
+<div class="row" >
+	<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
+	<div class="col-10 col-lg-4 col-md-6 col-sm-10">
+		<div *ngFor="let social_item of social_items">
+			<mat-card [routerLink]="['/score_item/child_labor']">
+				<div class="left">
+					{{social_item.name}}
+				</div>
+				<div class="right">
+					{{social_item.points | number :'1.0-1'}} / {{social_item.max_points | number :'1.0-1'}}
+				</div>
+			</mat-card>
+		</div>
+		<br/>
+		<div class="left">
+			&nbsp; &nbsp; Subtotal
+		</div>
+		<div class="right">
+			{{social_items_total | number :'1.0-1'}} / {{social_items_max_total | number :'1.0-1'}} &nbsp; &nbsp; 
+		</div>
+	</div>
+	<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
+</div>
 
 <hr/>
 <h2>Environment</h2>
@@ -12,16 +38,16 @@
 					{{environment_item.name}}
 				</div>
 				<div class="right">
-					{{environment_item.points | number :'1.0-1'}}
+					{{environment_item.points | number :'1.0-1'}} / {{environment_item.max_points | number :'1.0-1'}}
 				</div>
 			</mat-card>
 		</div>
 		<br/>
 		<div class="left">
-			&nbsp; &nbsp; Total
+			&nbsp; &nbsp; Subtotal
 		</div>
 		<div class="right">
-			{{environment_items_total | number :'1.0-1'}} &nbsp; &nbsp; 
+			{{environment_items_total | number :'1.0-1'}} / {{environment_items_max_total | number :'1.0-1'}} &nbsp; &nbsp; 
 		</div>
 	</div>
 	<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
@@ -39,46 +65,19 @@
 					{{impact_item.name}}
 				</div>
 				<div class="right">
-					{{impact_item.points | number :'1.0-1'}}
+					{{impact_item.points | number :'1.0-1'}} / {{impact_item.max_points | number :'1.0-1'}}
 				</div>
 			</mat-card>
 		</div>
 		<br/>
 		<div class="left">
-			&nbsp; &nbsp; Total
+			&nbsp; &nbsp; Subtotal
 		</div>
 		<div class="right">
-			{{impact_items_total | number :'1.0-1' }} &nbsp; &nbsp; 
+			{{impact_items_total | number :'1.0-1'}} / {{impact_items_max_total | number :'1.0-1'}} &nbsp; &nbsp; 
 		</div>
 	</div>
 	<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
 </div>
 
 
-<hr/>
-<h2>Social</h2>
-<div class="row" >
-	<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
-	<div class="col-10 col-lg-4 col-md-6 col-sm-10">
-		<div *ngFor="let social_item of social_items">
-			<mat-card [routerLink]="['/score_item/child_labor']">
-				<div class="left">
-					{{social_item.name}}
-				</div>
-				<div class="right">
-					{{social_item.points | number :'1.0-1'}}
-				</div>
-			</mat-card>
-		</div>
-		<br/>
-		<div class="left">
-			&nbsp; &nbsp; Total
-		</div>
-		<div class="right">
-			{{social_items_total | number :'1.0-1'}} &nbsp; &nbsp; 
-		</div>
-	</div>
-	<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
-</div>
-
-<br/>

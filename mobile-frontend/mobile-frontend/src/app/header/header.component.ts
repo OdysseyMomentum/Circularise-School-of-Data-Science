@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Subscription } from 'rxjs';
+
+import { HeaderService } from "../header/header.service";
 
 @Component({
   selector: 'app-header',
@@ -7,9 +11,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  private headerBackListener: Subscription;
+  public back = "/";
+
+  constructor(
+    private headerService: HeaderService) { }
 
   ngOnInit(): void {
+
+  	this.headerBackListener = this.headerService
+      .getHeaderBackListerner()
+      .subscribe((path: string)=>{
+        this.back = path;
+      });
+
   }
+
+
+  // ngOnDestroy(){
+  //   this.authListenerSubs.unsubscribe();
+  // }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatInputModule} from '@angular/material/input';
 import {FormControl, Validators} from '@angular/forms';
+import { HeaderService } from "../../../header/header.service";
 
 @Component({
   selector: 'app-signup-page',
@@ -9,18 +10,10 @@ import {FormControl, Validators} from '@angular/forms';
 })
 export class SignupPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+  	private headerService: HeaderService) { }
 
   ngOnInit(): void {
+    this.headerService.setHeaderBack("/");
   }
-  // email = new FormControl('', [Validators.required, Validators.email]);
-
-  // getErrorMessage() {
-  //   if (this.email.hasError('required')) {
-  //     return 'You must enter a value';
-  //   }
-
-  //   return this.email.hasError('email') ? 'Not a valid email' : '';
-  // }
-
 }
