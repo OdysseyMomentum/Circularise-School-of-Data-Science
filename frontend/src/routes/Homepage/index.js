@@ -11,6 +11,11 @@ class Homepage extends React.Component {
     history: PropTypes.object,
   };
 
+  constructor(props) {
+    super(props);
+    this.child = React.createRef();
+  }
+
   state = {
     mockData: "",
   };
@@ -19,11 +24,18 @@ class Homepage extends React.Component {
     this.setState({ mockData });
   };
 
+  callFlyToMarker = (currentFeature) => {
+    this.child.current.flyToMarker(currentFeature);
+  };
+
   render() {
     return (
       <div className="homepage">
-        <SidePanel mockData={this.state.mockData} />
-        <Map setData={this.setData} />
+        <SidePanel
+          callFlyToMarker={this.callFlyToMarker}
+          mockData={this.state.mockData}
+        />
+        <Map ref={this.child} setData={this.setData} />
         <UserPanel />
       </div>
     );
