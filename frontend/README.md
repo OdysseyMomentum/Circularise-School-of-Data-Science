@@ -25,11 +25,15 @@ Builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
 The build is minified and the filenames include the hashes.
 
-## Deployment
+## Easy way to deploy
 
-You can easily deploy this code with a Netlify using these commands:
+Once you have run a build, you can easily deploy this code with a Netlify using these commands:
 
 ```sh
 npm install netlify-cli -g
+cd build
 netlify deploy
 ```
+
+The latest build is deployed here:
+https://suspicious-liskov-9f3f70.netlify.app/
