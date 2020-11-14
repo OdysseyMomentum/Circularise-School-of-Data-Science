@@ -22,3 +22,5 @@
 /frontend/yarn.lock
 /frontend/package-lock.json
 /frontend/.netlify
+
+**/__pycache__
