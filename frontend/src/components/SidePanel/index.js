@@ -10,7 +10,7 @@ export default class SidePanel extends React.Component {
     return (
       <div className="side-panel">
         <Filters />
-        <ListOfBatch />
+        <ListOfBatch mockData={this.props.mockData} />
         <Total />
       </div>
     );

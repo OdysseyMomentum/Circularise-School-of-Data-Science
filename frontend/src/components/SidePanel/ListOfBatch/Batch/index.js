@@ -5,7 +5,7 @@ export default class Batch extends React.Component {
   render() {
     return (
       <div className="batch">
-        <p>Hop hop</p>
+        <p>Adress: {this.props.properties.address}</p>
       </div>
     );
   }

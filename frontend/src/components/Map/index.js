@@ -1,10 +1,16 @@
 import React from "react";
-import mockDataCollection from "../../assets/data/mockDataCollection.geojson";
+import "./styles.css";
+import PropTypes from "prop-types";
+
+import mockData from "../../assets/data/mockData.geojson";
 import marker from "../../assets/icons/marker.png";
 import mapboxgl from "mapbox-gl";
-import "./styles.css";
 
 export default class Map extends React.Component {
+  static propTypes = {
+    setMockData: PropTypes.func,
+  };
+
   state = {
     lat: 38.909671,
     lng: -77.034084,
@@ -12,38 +18,12 @@ export default class Map extends React.Component {
   };
 
   componentDidMount() {
-    // function buildLocationList(data) {
-    //   data.features.forEach(function(store, i){
-    //     /**
-    //      * Create a shortcut for `store.properties`,
-    //      * which will be used several times below.
-    //     **/
-    //     var prop = store.properties;
+    // Get the inside of the mocked data to feed the parent container
+    fetch(`${mockData}`)
+      .then((response) => response.json())
+      .then((data) => this.props.setData(data.features));
 
-    //     /* Add a new listing section to the sidebar. */
-    //     var listings = document.getElementById('listings');
-    //     var listing = listings.appendChild(document.createElement('div'));
-    //     /* Assign a unique `id` to the listing. */
-    //     listing.id = "listing-" + prop.id;
-    //     /* Assign the `item` class to each listing for styling. */
-    //     listing.className = 'item';
-
-    //     /* Add the link to the individual listing created above. */
-    //     var link = listing.appendChild(document.createElement('a'));
-    //     link.href = '#';
-    //     link.className = 'title';
-    //     link.id = "link-" + prop.id;
-    //     link.innerHTML = prop.address;
-
-    //     /* Add details to the individual listing. */
-    //     var details = listing.appendChild(document.createElement('div'));
-    //     details.innerHTML = prop.city;
-    //     if (prop.phone) {
-    //       details.innerHTML += ' · ' + prop.phoneFormatted;
-    //     }
-    //   });
-    // }
-
+    // Render the map
     const map = new mapboxgl.Map({
       container: this.mapContainer,
       style: "mapbox://styles/mapbox/streets-v11",
@@ -62,8 +42,7 @@ export default class Map extends React.Component {
     map.on("load", function (e) {
       map.loadImage(marker, function (error, image) {
         if (error) throw error;
-        console.log(mockDataCollection);
-        map.addImage("cat", image);
+        map.addImage("marker", image);
         map.addSource("point", {
           type: "geojson",
           data: {
@@ -86,10 +65,10 @@ export default class Map extends React.Component {
           /* Add a GeoJSON source containing place coordinates and information. */
           source: {
             type: "geojson",
-            data: mockDataCollection,
+            data: mockData,
           },
           layout: {
-            "icon-image": "cat",
+            "icon-image": "marker",
             "icon-allow-overlap": true,
           },
         });

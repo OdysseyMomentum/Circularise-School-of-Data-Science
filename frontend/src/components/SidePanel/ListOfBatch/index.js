@@ -6,10 +6,13 @@ import Batch from "./Batch";
 export default class ListOfBatch extends React.Component {
   render() {
     return (
-      <div className="side-panel">
-        <Batch />
-        <Batch />
-        <Batch />
+      <div className="list-batch">
+        {Object.keys(this.props.mockData).map((key) => (
+          <Batch
+            key={key}
+            properties={this.props.mockData[key]["properties"]}
+          />
+        ))}
       </div>
     );
   }
