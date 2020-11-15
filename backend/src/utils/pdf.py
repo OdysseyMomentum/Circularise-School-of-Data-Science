@@ -16,9 +16,10 @@ certificate_template = env.get_template("formatted.html")
 
 explorer = "https://goerli.etherscan.io/tx/"
 
-logo_path = open('./templates/badge.png', 'rb')
+logo_path = open("./templates/badge.png", "rb")
 # logo = logo_path.read()
 logo_data_uri = base64.b64encode(logo_path.read()).decode("ascii")
+
 
 def generate_pdf_certificate(token: WasteToken, txn_hash: str):
     img = qrcode.make(f"{explorer}{txn_hash}")

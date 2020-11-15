@@ -1,3 +1,5 @@
+import os
+
 from fastapi import FastAPI, Query, Request, BackgroundTasks, Header, Depends, Response
 from fastapi.openapi.utils import get_openapi
 from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
@@ -6,22 +8,28 @@ from models.requests import BurnData, TransferData, WasteToken
 from utils.pdf import generate_pdf_certificate
 from utils.smart_contract import contract_instance
 
+WP_PUBLIC_KEY = os.environ["WP_PUBLIC_KEY"]
+
 blockchain = FastAPI(
     title="WasteParty API Docs",
     description="Docs for the Odyssey Hackathon API",
-    version="0.1.0"
+    version="0.1.0",
 )
 
 
 @blockchain.get("/balance")
-def get_balance(request: Request, public_key: str = "0x4E799D483A36e954E641938f6b52B44aB107f1bf", token_id: int = 0):
+def get_balance(
+    request: Request,
+    public_key: str = WP_PUBLIC_KEY,
+    token_id: int = 0,
+):
     balance = contract_instance.get_token_balance(public_key, token_id)
 
     return JSONResponse({"balance": balance})
 
 
 @blockchain.get("/balances")
-def get_balances(request: Request, public_key: str = "0x4E799D483A36e954E641938f6b52B44aB107f1bf"):
+def get_balances(request: Request, public_key: str = WP_PUBLIC_KEY):
     balances = contract_instance.get_token_balances(public_key)
 
     return JSONResponse({"balances": balances})
@@ -82,8 +90,8 @@ def mint_certified_token(request: Request, data: WasteToken):
 
     # returned_hash = txn_receipt["transactionHash"].hex()
 
-    returned_hash = 'testing'
-    
+    returned_hash = "testing"
+
     cert = generate_pdf_certificate(data, returned_hash)
 
     return Response(content=cert, media_type="application/pdf")
@@ -92,9 +100,7 @@ def mint_certified_token(request: Request, data: WasteToken):
 @blockchain.post("/burn")
 def burn_token(request: Request, data: BurnData):
     burnt, txn_hash = contract_instance.burn_waste_token(
-        data.owner,
-        data.amount,
-        data.id
+        data.owner, data.amount, data.id
     )
 
     if not burnt:
@@ -106,10 +112,7 @@ def burn_token(request: Request, data: BurnData):
 @blockchain.post("/transfer")
 def transfer_tokens(request: Request, data: TransferData):
     transferred, txn_hash = contract_instance.safe_batch_transfer(
-        data.owner,
-        data.to,
-        data.ids,
-        data.amounts
+        data.owner, data.to, data.ids, data.amounts
     )
 
     if not transferred:
