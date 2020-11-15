@@ -12,6 +12,7 @@ import { CreateEventComponent } from './pages/create-event/create-event.componen
 import { ActiveEventComponent } from './pages/active-event/active-event.component';
 import { EventSummaryPageComponent } from './pages/event-summary-page/event-summary-page.component';
 import { PastEventsPageComponent } from './pages/past-events-page/past-events-page.component';
+import { SellPageComponent } from './pages/sell-page/sell-page.component';
 
 const routes: Routes = [
 	{ path: 'home', component: HomeComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
 	{ path: 'active_event', component: ActiveEventComponent },
 	{ path: 'past_events', component: PastEventsPageComponent },
 	{ path: 'event_summary', component: EventSummaryPageComponent },
+	{ path: 'sell_goods', component: SellPageComponent },
 ];
 
 @NgModule({

@@ -58,7 +58,7 @@ export class ActiveEventComponent implements OnInit {
 	}]
 
 	public event: any = {
-		"name": "Get Wasted Party hardy",
+		"name": "Waste party",
 		"location": "Davao City",
 		"date": new Date().toISOString().slice(0,10),
 		"base-score": 42
