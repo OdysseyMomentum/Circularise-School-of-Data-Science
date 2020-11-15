@@ -66,29 +66,26 @@ def mint_token(request: Request, data: WasteToken):
 
 @blockchain.post("/mint/certified")
 def mint_certified_token(request: Request, data: WasteToken):
-    # minted, txn_hash = contract_instance.mint_waste_token(
-    #     data.creator,
-    #     True,
-    #     data.waste_points,
-    #     data.social,
-    #     data.environment,
-    #     data.impact,
-    #     data.booster,
-    # )
+    minted, txn_hash = contract_instance.mint_waste_token(
+        data.creator,
+        True,
+        data.waste_points,
+        data.social,
+        data.environment,
+        data.impact,
+        data.booster,
+    )
 
-    # if not minted:
-    #     return JSONResponse({"success": False}, status_code=409)
+    if not minted:
+        return JSONResponse({"success": False}, status_code=409)
 
-    # try:
-    #     txn_receipt = contract_instance.w3.eth.waitForTransactionReceipt(
-    #         txn_hash)
-    # except Exception as e:
-    #     return JSONResponse({"success": False, "error": str(e)}, status_code=409)
+    try:
+        txn_receipt = contract_instance.w3.eth.waitForTransactionReceipt(
+            txn_hash)
+    except Exception as e:
+        return JSONResponse({"success": False, "error": str(e)}, status_code=409)
 
-    # returned_hash = txn_receipt["transactionHash"].hex()
-
-    returned_hash = "testing"
-
+    returned_hash = txn_receipt["transactionHash"].hex()
     cert = generate_pdf_certificate(data, returned_hash)
 
     return Response(content=cert, media_type="application/pdf")
