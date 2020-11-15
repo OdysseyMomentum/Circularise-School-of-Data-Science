@@ -19,8 +19,7 @@ class CollectableContract:
         self.nonce = self.w3.eth.getTransactionCount(self.account.address)
 
         contract_address = self.w3.toChecksumAddress(contract_address)
-        contract_abi = json.loads(
-            open("./ethereum/ERC1155Collectable.json").read())
+        contract_abi = json.loads(open("./ethereum/ERC1155Collectable.json").read())
 
         self.w3.eth.defaultAccount = self.account
         self.contract = self.w3.eth.contract(
@@ -71,11 +70,10 @@ class CollectableContract:
         return metadata
 
     def send_transaction(self, txn):
-        signed_txn = self.w3.eth.account.sign_transaction(
-            txn, private_key=self.priv
-        )
-        txn_hash = self.w3.eth.sendRawTransaction(
-            signed_txn.rawTransaction)
+        signed_txn = self.w3.eth.account.sign_transaction(txn, private_key=self.priv)
+        txn_hash = self.w3.eth.sendRawTransaction(signed_txn.rawTransaction)
+
+        self.nonce += 1
 
         return txn_hash
 
@@ -93,14 +91,9 @@ class CollectableContract:
             txn = self.contract.functions.mintWasteToken(
                 to, amount, certified, social, environment, impact, boosted
             ).buildTransaction(self.generate_metadata())
-
-            txn_hash = self.send_transaction(txn)
-            
-            self.nonce += 1
-            return True, txn_hash
+            return True, self.send_transaction(txn)
         except Exception as e:
             print(e)
-            self.nonce += 1
             return False, None
 
     def burn_waste_token(self, owner: str, amount: int, id: int):
@@ -108,14 +101,9 @@ class CollectableContract:
             txn = self.contract.functions.burnWasteToken(
                 owner, amount, id
             ).buildTransaction(self.generate_metadata())
-
-            txn_hash = self.send_transaction(txn)
-            
-            self.nonce += 1
-            return True, txn_hash
+            return True, self.send_transaction(txn)
         except Exception as e:
             print(e)
-            self.nonce += 1
             return False, None
 
     def safe_batch_transfer(self, _from: str, to: str, ids: list, amounts: list):
@@ -123,14 +111,9 @@ class CollectableContract:
             txn = self.contract.functions.safeBatchTransferFrom(
                 _from, to, ids, amounts, ""
             ).buildTransaction(self.generate_metadata())
-
-            txn_hash = self.send_transaction(txn)
-            
-            self.nonce += 1
-            return True, txn_hash
+            return True, self.send_transaction(txn)
         except Exception as e:
             print(e)
-            self.nonce += 1
             return False, None
 
 
