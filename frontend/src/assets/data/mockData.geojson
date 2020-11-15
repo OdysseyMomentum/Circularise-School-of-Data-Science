@@ -5,7 +5,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [-77.034084142948, 38.909671288923]
+        "coordinates": [98.780679, 12.305802]
       },
       "properties": {
         "name": "Batch 0",
@@ -23,7 +23,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [-77.049766, 38.900772]
+        "coordinates": [98.652782, 12.433156]
       },
       "properties": {
         "name": "Batch 1",
@@ -41,7 +41,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [-77.043929, 38.910525]
+        "coordinates": [98.615618, 12.954479]
       },
       "properties": {
         "name": "Batch 2",
@@ -59,7 +59,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [-77.0672, 38.90516896]
+        "coordinates": [99.993682, 13.365708]
       },
       "properties": {
         "name": "Batch 3",
@@ -77,7 +77,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [-77.002583742142, 38.887041080933]
+        "coordinates": [100.267202, 13.528946]
       },
       "properties": {
         "name": "Batch 4",
@@ -95,7 +95,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [-77.097083330154, 38.980979]
+        "coordinates": [100.570065, 13.559680]
       },
       "properties": {
         "name": "Batch 5",
@@ -114,7 +114,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [-77.359425054188, 38.958058116661]
+        "coordinates": [100.476236, 13.856651]
       },
       "properties": {
         "name": "Batch 6",
@@ -132,7 +132,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [-77.10853099823, 38.880100922392]
+        "coordinates": [101.010001, 13.491220]
       },
       "properties": {
         "name": "Batch 7",
@@ -150,7 +150,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [-75.28784, 40.008008]
+        "coordinates": [101.158086, 12.672288]
       },
       "properties": {
         "name": "Batch 8",
@@ -168,7 +168,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [-75.20121216774, 39.954030175164]
+        "coordinates": [101.701531, 12.714829]
       },
       "properties": {
         "name": "Batch 9",
@@ -186,7 +186,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [-77.043959498405, 38.903883387232]
+        "coordinates": [101.789418, 12.704303]
       },
       "properties": {
         "name": "Batch 10",
@@ -204,7 +204,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [-76.933492720127, 38.99225245786]
+        "coordinates": [101.958553, 12.617505]
       },
       "properties": {
         "name": "Batch 11",
@@ -216,6 +216,176 @@
         "score": 50,
         "scoreMax": 200,
         "SDG": [5, 6]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [98.603410, 9.936597]
+      },
+      "properties": {
+        "name": "Batch 12",
+        "id": "2023313357",
+        "location": "Bang Rin, Ranong 85000, Thailand",
+        "weight": 300,
+        "price": 5,
+        "score": 10,
+        "scoreMax": 200,
+        "SDG": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [99.179171, 10.491535]
+      },
+      "properties": {
+        "name": "Batch 13",
+        "id": "2023313358",
+        "location": "Tha Taphao, Chumphon 86000, Thailand",
+        "weight": 80,
+        "price": 22,
+        "score": 40,
+        "scoreMax": 200,
+        "SDG": [5, 6]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [99.323104, 9.154892]
+      },
+      "properties": {
+        "name": "Batch 14",
+        "id": "2023313359",
+        "location": "Khlong Chanak, Surat Thani, Thailand",
+        "weight": 75,
+        "price": 25,
+        "score": 50,
+        "scoreMax": 200,
+        "SDG": [1, 4, 6]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [98.287258, 8.888261]
+      },
+      "properties": {
+        "name": "Batch 15",
+        "id": "2023313360",
+        "location": "Bang Nai Si, Phang-nga 82110, Thailand",
+        "weight": 500,
+        "price": 25,
+        "score": 60,
+        "scoreMax": 200,
+        "SDG": [4, 5, 6]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [99.990910, 8.541342]
+      },
+      "properties": {
+        "name": "Batch 16",
+        "id": "2023313361",
+        "location": "Pak Phun, Nakhon Si Thammarat, Thailand",
+        "weight": 175,
+        "price": 30,
+        "score": 77,
+        "scoreMax": 200,
+        "SDG": [5, 6]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [100.168888, 6.433673]
+      },
+      "properties": {
+        "name": "Batch 17",
+        "id": "2023313362",
+        "location": "Wang Bintong, Perlis, Malaysia",
+        "weight": 250,
+        "price": 23,
+        "score": 48,
+        "scoreMax": 200,
+        "SDG": [1, 6]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [100.435140, 5.639097]
+      },
+      "properties": {
+        "name": "Batch 18",
+        "id": "2023313363",
+        "location": "Bujang, Kedah, Malaysia",
+        "weight": 1580,
+        "price": 15,
+        "score": 30,
+        "scoreMax": 200,
+        "SDG": [5]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [100.409961, 5.572512]
+      },
+      "properties": {
+        "name": "Batch 19",
+        "id": "2023313364",
+        "location": "Kota Kuala Muda, Kedah, Malaysia",
+        "weight": 50,
+        "price": 29,
+        "score": 90,
+        "scoreMax": 200,
+        "SDG": [1, 4, 5, 6]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [100.552899, 4.921521]
+      },
+      "properties": {
+        "name": "Batch 20",
+        "id": "2023313365",
+        "location": "Selinsing, Perak, Malaysia",
+        "weight": 160,
+        "price": 23,
+        "score": 80,
+        "scoreMax": 200,
+        "SDG": [4, 5]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.115334, 5.341060]
+      },
+      "properties": {
+        "name": "Batch 21",
+        "id": "2023313366",
+        "location": "Kuala Nerus, Terengganu, Malaysia",
+        "weight": 400,
+        "price": 11,
+        "score": 10,
+        "scoreMax": 200,
+        "SDG": []
       }
     }
   ]
