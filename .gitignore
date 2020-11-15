@@ -2,7 +2,6 @@
 
 # dependencies
 /frontend/node_modules
-/mobile-frontend/mobile-frontend/node_modules
 
 # testing
 

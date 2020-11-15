@@ -66,3 +66,11 @@ mat-card.active:hover{
 .end-event-button{
 	background-color: #daa;
 }
+
+.done {
+	background-color: #ada;
+}
+.total-score{
+	font-size: 20px;
+	font-weight: bold;
+}
