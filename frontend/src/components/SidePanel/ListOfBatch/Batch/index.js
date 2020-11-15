@@ -1,17 +1,25 @@
 import React from "react";
 import "./styles.css";
-import CTA from "../../../shared/CTA";
 import Slider from "../../../shared/Slider";
+import Confetti from "react-dom-confetti";
 
 export default class Batch extends React.Component {
   state = {
     isSelected: false,
-    price: this.props.feature.properties.price,
+    finalBoostedPrice: this.props.feature.properties.price,
+    finalBoostedScore: this.props.feature.properties.score,
+    isButtonDisabled: false,
   };
 
   updatePrice = (score) => {
+    // not necessarily added yet
     const price = Math.round(score * 1.02);
-    this.setState({ price });
+    this.setState({ finalBoostedPrice: price });
+  };
+
+  updateScore = (score) => {
+    // not necessarily added yet
+    this.setState({ finalBoostedScore: score });
   };
 
   selectPreview = () => {
@@ -26,15 +34,20 @@ export default class Batch extends React.Component {
     );
     this.props.updateTotalPrice(
       this.state.isSelected
-        ? -this.props.feature.properties.price
-        : this.props.feature.properties.price
+        ? -this.state.finalBoostedPrice
+        : this.state.finalBoostedPrice
     );
     this.props.updateTotalScore(
       this.state.isSelected
-        ? -this.props.feature.properties.score
-        : this.props.feature.properties.score
+        ? -this.state.finalBoostedScore
+        : this.state.finalBoostedScore
     );
+
     this.setState({ isSelected: !this.state.isSelected });
+    if (!this.state.isSelected) {
+      this.setState({ isButtonDisabled: true });
+      setTimeout(() => this.setState({ isButtonDisabled: false }), 1500);
+    }
   };
 
   render() {
@@ -46,18 +59,40 @@ export default class Batch extends React.Component {
         <div className="weight">
           Weight: {this.props.feature.properties.weight}kg
         </div>
-        <Slider
-          updatePrice={this.updatePrice}
-          defaultValue={this.props.feature.properties.score}
-          minValue={this.props.feature.properties.score}
-          maxValue={this.props.feature.properties.scoreMax}
-        />
-        <div className="price">Total price: ${this.state.price}</div>
-        <div className="cta-container">
-          <CTA
-            text={`${this.state.isSelected ? "Remove from" : "Add to"} cart`}
-            onClick={() => this.selectAdd()}
+        <div className="slider-container" disabled={this.state.isSelected}>
+          <Slider
+            updatePrice={this.updatePrice}
+            updateScore={this.updateScore}
+            defaultValue={this.props.feature.properties.score}
+            minValue={this.props.feature.properties.score}
+            maxValue={this.props.feature.properties.scoreMax}
           />
+        </div>
+        {!this.state.isSelected && (
+          <div className="recap">
+            <span>Total price: ${this.state.finalBoostedPrice}</span>
+            <span>Total WP Score: {this.state.finalBoostedScore}</span>
+          </div>
+        )}
+        {this.state.isSelected && (
+          <div className="recap">
+            <span>
+              Total price: <b>${this.state.finalBoostedPrice}</b>
+            </span>
+            <span>
+              Total WP Score: <b>{this.state.finalBoostedScore}</b>
+            </span>
+          </div>
+        )}
+        <div className="cta-container">
+          <button
+            disabled={this.state.isButtonDisabled}
+            className="cta"
+            onClick={() => this.selectAdd()}
+          >
+            {this.state.isSelected ? "Remove from" : "Add to"} cart
+            <Confetti active={this.state.isSelected} />
+          </button>
         </div>
       </li>
     );

@@ -1,0 +1,86 @@
+<h1> {{event.name}} </h1>
+<hr/>
+<h2> Details </h2>
+<div class="row main-div" >
+	<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
+	<div class="col-10 col-lg-4 col-md-6 col-sm-10">
+		<mat-form-field appearance="fill">
+			<mat-label>Location</mat-label>
+			<input matInput [(value)]="event.location" readonly>
+		</mat-form-field>
+		<mat-form-field appearance="fill">
+			<mat-label>Date</mat-label>
+			<input matInput [(value)]="event.date" type="date" readonly>
+		</mat-form-field>
+	</div>
+	<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
+</div>
+<hr/>
+<h2> Participants </h2>
+<div class=" pickers-list">
+	<div class="row" >
+		<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
+		<div class="col-10 col-lg-4 col-md-6 col-sm-10">
+			<div class="avatars">
+			<div *ngFor="let people of people" class="avatar-holder">
+				<img [src]="people.image" class="avatar">
+				<br/>
+				<label class="avatar-name">{{people.name}}</label>
+			</div>
+		</div>
+		<!-- <span class="avatar"> + </span> -->
+		<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
+	</div>
+</div>	
+<hr/>
+<h2> Waste Points </h2>
+<div class="row" >
+	<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
+	<div class="col-10 col-lg-4 col-md-6 col-sm-10">
+		<mat-card class="inactive">
+			<div class="left">
+				Base score
+			</div>
+			<div class="right">
+				{{event["base-score"] | number :'1.0-1'}}
+			</div>
+		</mat-card>
+		<mat-card *ngFor="let item of active_scores" class="active" [ngClass]="{'done' : item.done}" (click)="item.done=true; calculate_total_score()">
+			<!-- [ngClass]="'done' if item.done ? 'not-done'" -->
+			<div class="left">
+				{{item.name}}
+			</div>
+			<div class="right">
+				+ {{item.points | number :'1.0-1'}}
+			</div>
+		</mat-card>
+		<br/>
+		<div class="total-score">
+			<div class="left">
+				&nbsp; &nbsp; Total
+			</div>
+			<div class="right">
+				{{total_score}} &nbsp; &nbsp; 
+			</div>
+		</div>
+		
+	</div>
+	<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
+</div>
+
+<br/>
+<hr/>
+
+<div class="row" >
+	<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
+	<div class="col-10 col-lg-4 col-md-6 col-sm-10">
+		<br/>
+		<button mat-raised-button class="button end-event-button" [routerLink]="['/home']">End event</button>
+	</div>
+	<!-- <span class="avatar"> + </span> -->
+	<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
+</div>
+
+<br/>
+<br/>
+

@@ -10,9 +10,9 @@
   width: 35%;
 }
 
-.slider-container .value {
+/* .slider-container .value {
   color: #666;
-}
+} */
 
 .slider-container .value--left {
   text-align: right;
@@ -28,4 +28,8 @@
 
 .rangeslider-horizontal .rangeslider__fill {
   background: #ffa500;
+}
+
+.rangeslider__handle:focus {
+  outline: none;
 }

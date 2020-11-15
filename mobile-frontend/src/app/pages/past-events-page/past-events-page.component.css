@@ -1,0 +1,32 @@
+
+h1{
+	text-align: center;
+}
+
+h2{
+	text-align: center;
+}
+
+.event-image{
+	width:100%;
+}
+
+.left{
+	/*display: inline-block;*/
+	float:left;
+}
+.center {
+	float: left;
+}
+.right{
+	/*display: inline-block;*/
+	float:right;
+}
+.spacer{
+	flex: 1 1 auto;
+}
+
+.report-button{
+	width:100%;
+	background-color: #add;
+}

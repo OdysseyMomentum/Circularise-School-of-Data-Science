@@ -18,6 +18,7 @@ export default class Slider extends React.Component {
   handleChange = (value) => {
     this.setState({ value });
     this.props.updatePrice(value);
+    this.props.updateScore(value);
   };
 
   handleChangeComplete = () => {
