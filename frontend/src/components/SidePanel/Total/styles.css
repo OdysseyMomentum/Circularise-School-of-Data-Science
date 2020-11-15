@@ -1,2 +1,7 @@
 .total {
+  margin-top: 15px;
+}
+
+.total p {
+  margin: 0;
 }

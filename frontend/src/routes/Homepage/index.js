@@ -6,6 +6,8 @@ import SidePanel from "../../components/SidePanel";
 import Map from "../../components/Map";
 import UserPanel from "../../components/UserPanel";
 
+import { withWindowDimensions } from "../../helpers";
+
 class Homepage extends React.Component {
   static propTypes = {
     history: PropTypes.object,
@@ -18,6 +20,19 @@ class Homepage extends React.Component {
 
   state = {
     mockData: "",
+    totalKg: 0,
+    totalPrice: 0,
+    totalScore: 0,
+  };
+
+  updateTotalKg = (updateKg) => {
+    this.setState({ totalKg: this.state.totalKg + updateKg });
+  };
+  updateTotalPrice = (updatePrice) => {
+    this.setState({ totalPrice: this.state.totalPrice + updatePrice });
+  };
+  updateTotalScore = (updateScore) => {
+    this.setState({ totalScore: this.state.totalScore + updateScore });
   };
 
   setData = (mockData) => {
@@ -30,10 +45,21 @@ class Homepage extends React.Component {
 
   render() {
     return (
-      <div className="homepage">
+      <div
+        className="homepage"
+        style={{
+          height: `${this.props.windowHeight}px`,
+        }}
+      >
         <SidePanel
           callFlyToMarker={this.callFlyToMarker}
           mockData={this.state.mockData}
+          totalKg={this.state.totalKg}
+          totalPrice={this.state.totalPrice}
+          totalScore={this.state.totalScore}
+          updateTotalKg={this.updateTotalKg}
+          updateTotalPrice={this.updateTotalPrice}
+          updateTotalScore={this.updateTotalScore}
         />
         <Map ref={this.child} setData={this.setData} />
         <UserPanel />
@@ -42,4 +68,4 @@ class Homepage extends React.Component {
   }
 }
 
-export default Homepage;
+export default withWindowDimensions(Homepage);

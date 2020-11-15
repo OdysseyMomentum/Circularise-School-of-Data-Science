@@ -1,0 +1,35 @@
+.slider-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-container .rangeslider {
+  width: 35%;
+}
+
+/* .slider-container .value {
+  color: #666;
+} */
+
+.slider-container .value--left {
+  text-align: right;
+  margin-right: 5px;
+  width: 40%;
+}
+
+.slider-container .value--right {
+  text-align: left;
+  margin-left: 5px;
+  width: 25%;
+}
+
+.rangeslider-horizontal .rangeslider__fill {
+  background: #ffa500;
+}
+
+.rangeslider__handle:focus {
+  outline: none;
+}

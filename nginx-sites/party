@@ -1,0 +1,17 @@
+server {
+    server_name party.wasteparty.org;
+    index index.html;
+    root /home/ubuntu/Circularise-School-of-Data-Science/mobile-frontend/mobile-frontend/dist/mobile-frontend;
+
+    location / {
+        try_files $uri$args $uri$args/ /index.html;
+    }
+
+    listen [::]:443; # manually changed;  ssl ipv6only=on; # managed by Certbot
+    ssl on;  # manually changed;
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/party.wasteparty.org/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/party.wasteparty.org/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+}

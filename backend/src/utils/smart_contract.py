@@ -11,13 +11,12 @@ class CollectableContract:
         self.priv = '8f7f80cc49a1c4201b170aeca0dfbae28bf87397307a5aca306d0be63a465a55'
 
         self.account = self.w3.eth.account.privateKeyToAccount(self.priv)
-        self.w3.eth.defaultAccount = self.account
         self.nonce = self.w3.eth.getTransactionCount(self.account.address)
-
 
         contract_address = self.w3.toChecksumAddress(contract_address)
         contract_abi = json.loads(open('./ethereum/ERC1155Collectable.json').read())
         
+        self.w3.eth.defaultAccount = self.account
         self.contract = self.w3.eth.contract(address=contract_address, abi=contract_abi['abi'])
 
     def get_token_balances(self, owner: str):
@@ -29,17 +28,24 @@ class CollectableContract:
         return balance
 
     def get_token(self, id: int):
-        token = self.contract.functions.getToken(id).call({'from': self.account.address})
+        raw_token = self.contract.functions.getToken(id).call({'from': self.account.address})
+        token = {
+            'creator': raw_token[0],
+            'certified': raw_token[1],
+            'social': raw_token[2][0],
+            'environment': raw_token[2][1],
+            'impact': raw_token[2][2],
+            'booster': raw_token[2][3]
+        }
         return token
 
     def get_current_id(self):
-        current_id = self.contract.functions.currentId().call({'from': self.account.address})
+        current_id = self.contract.functions.current_id().call({'from': self.account.address})
         return current_id
 
-    def mint_waste_token(self, to: str, amount: int, social: int, environment: int, impact: int, boosted: bool):
+    def mint_waste_token(self, to: str, certified: bool, amount: int, social: int, environment: int, impact: int, boosted: bool):
         try:
-            # nonce = self.w3.eth.getTransactionCount(to)
-            txn = self.contract.functions.mintWasteToken(to, amount, social, environment, impact, boosted).buildTransaction(
+            txn = self.contract.functions.mintWasteToken(to, amount, certified, social, environment, impact, boosted).buildTransaction(
                 {
                 'chainId': 5,
                 'gas': 3000000,
@@ -47,15 +53,58 @@ class CollectableContract:
                 'nonce': self.nonce,
                 'from': self.account.address
             })
-            print(txn)
+
             signed_txn = self.w3.eth.account.sign_transaction(txn, private_key=self.priv)
-            print(signed_txn.hash)
-            txn = self.w3.eth.sendRawTransaction(signed_txn.rawTransaction)
+            txn_hash = self.w3.eth.sendRawTransaction(signed_txn.rawTransaction)
+            
             self.nonce += 1
-            return True, str(txn)
+            
+            return True, txn_hash
         except Exception as e:
             print(e)
             return False, None
 
-contract_instance = CollectableContract('0x2FA8F3B1BD85056ccf326954a5209435571bCEE7')
+    def burn_waste_token(self, owner: str, amount: int, id: int):
+        try:
+            txn = self.contract.functions.burnWasteToken(owner, amount, id).buildTransaction(
+                {
+                'chainId': 5,
+                'gas': 3000000,
+                'gasPrice': self.w3.toWei('1', 'gwei'),
+                'nonce': self.nonce,
+                'from': self.account.address
+            })
+
+            signed_txn = self.w3.eth.account.sign_transaction(txn, private_key=self.priv)
+            txn_hash = self.w3.eth.sendRawTransaction(signed_txn.rawTransaction)
+            
+            self.nonce += 1
+            
+            return True, txn_hash
+        except Exception as e:
+            print(e)
+            return False, None
+
+    def safe_batch_transfer(self, _from: str, to: str, ids: list, amounts: list):
+        try:
+            txn = self.contract.functions.safeBatchTransferFrom(_from, to, ids, amounts, '').buildTransaction(
+                {
+                'chainId': 5,
+                'gas': 3000000,
+                'gasPrice': self.w3.toWei('1', 'gwei'),
+                'nonce': self.nonce,
+                'from': self.account.address
+            })
+
+            signed_txn = self.w3.eth.account.sign_transaction(txn, private_key=self.priv)
+            txn_hash = self.w3.eth.sendRawTransaction(signed_txn.rawTransaction)
+            
+            self.nonce += 1
+            
+            return True, txn_hash
+        except Exception as e:
+            print(e)
+            return False, None
+
+contract_instance = CollectableContract('0x74944eE3aE20c0311c9afF3e86Ea7A879b171f04')
 
