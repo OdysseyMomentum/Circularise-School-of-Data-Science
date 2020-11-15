@@ -1,7 +1,7 @@
 server {
     server_name party.wasteparty.org;
     index index.html;
-    root /home/ubuntu/Circularise-School-of-Data-Science/mobile-frontend/mobile-frontend/dist/mobile-frontend;
+    root /home/ubuntu/Circularise-School-of-Data-Science/mobile-frontend/dist/mobile-frontend;
 
     location / {
         try_files $uri$args $uri$args/ /index.html;
