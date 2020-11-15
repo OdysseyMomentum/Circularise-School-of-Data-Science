@@ -50,9 +50,11 @@ class CollectableContract:
             print(txn)
             signed_txn = self.w3.eth.account.sign_transaction(txn, private_key=self.priv)
             print(signed_txn.hash)
-            txn = self.w3.eth.sendRawTransaction(signed_txn.rawTransaction)
+            txn_hash = self.w3.eth.sendRawTransaction(signed_txn.rawTransaction)
+            tx_receipt = self.w3.eth.waitForTransactionReceipt(txn_hash)
+            print(tx_receipt)
             self.nonce += 1
-            return True, str(txn)
+            return True, tx_receipt
         except Exception as e:
             print(e)
             return False, None

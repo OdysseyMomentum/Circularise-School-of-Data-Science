@@ -18,16 +18,19 @@ class PdfInput(BaseModel):
     impact: int
     booster: int
     waste_points: int
+    txn_hash: str = None
 
 
-def generate_pdf_certificate(input: PdfInput):
+def generate_pdf_certificate(input: PdfInput, txn_hash: str):
     html: str = certificate_template.render(
-        title="test Hello PDF!",
-        # creator=input.creator,
-        # social=input.social,
-        # environment=input.environment,
-        # impact=input.impact,
-        # booster=input.booster,
-        # waste_points=input.waste_points
+        title='Your WP Certificate',
+        creator=input.creator,
+        social=input.social,
+        environment=input.environment,
+        impact=input.impact,
+        booster=input.booster,
+        waste_points=input.waste_points,
+        txn_hash=txn_hash
     )
+
     return pdfkit.from_string(html, False)
