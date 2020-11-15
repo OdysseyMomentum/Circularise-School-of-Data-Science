@@ -49,3 +49,27 @@ mat-card:hover{
 	height:100px;
 	background-color:#90EE90;
 }
+
+
+
+.container {
+   position: relative;
+   height:80px;
+   /*border: solid;*/
+   left:-20px;
+}
+.tag {
+   float: right;
+   position: absolute;
+   right: -10px;
+   top: 10px;
+   z-index: 1;
+   background-color: #daa;
+   padding: 5px;
+   color: #FFFFFF;
+   font-weight: bold;
+   border-radius: 50%;
+   width:30px;
+   height:30px;
+   text-align: center;
+}

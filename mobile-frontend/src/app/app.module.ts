@@ -8,6 +8,8 @@ import { SignupPageComponent } from './pages/authentication-pages/signup-page/si
 import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -29,6 +31,7 @@ import { CreateEventComponent } from './pages/create-event/create-event.componen
 import { ActiveEventComponent } from './pages/active-event/active-event.component';
 import { EventSummaryPageComponent } from './pages/event-summary-page/event-summary-page.component';
 import { PastEventsPageComponent } from './pages/past-events-page/past-events-page.component';
+import { SellPageComponent } from './pages/sell-page/sell-page.component';
 // import {MatGridListModule} from '@angular/material/grid-list';
 
 
@@ -47,7 +50,8 @@ import { PastEventsPageComponent } from './pages/past-events-page/past-events-pa
     CreateEventComponent,
     ActiveEventComponent,
     EventSummaryPageComponent,
-    PastEventsPageComponent
+    PastEventsPageComponent,
+    SellPageComponent
   ],
   imports: [
     MatInputModule,
@@ -61,6 +65,7 @@ import { PastEventsPageComponent } from './pages/past-events-page/past-events-pa
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
     MatCardModule,
     MatExpansionModule,
     // MatGridListModule
