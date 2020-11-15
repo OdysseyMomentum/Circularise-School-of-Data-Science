@@ -8,6 +8,7 @@ export default class Batch extends React.Component {
   state = {
     isSelected: false,
     price: this.props.feature.properties.price,
+    isButtonDisabled: false,
   };
 
   updatePrice = (score) => {
@@ -35,20 +36,25 @@ export default class Batch extends React.Component {
         ? -this.props.feature.properties.score
         : this.props.feature.properties.score
     );
+
     this.setState({ isSelected: !this.state.isSelected });
+    if (!this.state.isSelected) {
+      this.setState({ isButtonDisabled: true });
+      setTimeout(() => this.setState({ isButtonDisabled: false }), 2000);
+    }
   };
 
   render() {
     const config = {
-      angle: "207",
-      spread: 360,
-      startVelocity: "19",
-      elementCount: "180",
-      dragFriction: "0.07",
-      duration: "7590",
-      stagger: "11",
-      width: "19px",
-      height: "23px",
+      angle: "101",
+      spread: "23",
+      startVelocity: 40,
+      elementCount: 70,
+      dragFriction: 0.12,
+      duration: 1000,
+      stagger: 3,
+      width: "10px",
+      height: "10px",
       perspective: "500px",
       colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"],
     };
@@ -68,7 +74,11 @@ export default class Batch extends React.Component {
         />
         <div className="price">Total price: ${this.state.price}</div>
         <div className="cta-container">
-          <button className="cta" onClick={() => this.selectAdd()}>
+          <button
+            disabled={this.state.isButtonDisabled}
+            className="cta"
+            onClick={() => this.selectAdd()}
+          >
             {this.state.isSelected ? "Remove from" : "Add to"} cart
             <Confetti
               active={this.state.isSelected}

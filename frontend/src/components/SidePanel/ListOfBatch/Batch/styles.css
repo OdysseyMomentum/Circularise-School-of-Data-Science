@@ -24,10 +24,6 @@
   cursor: pointer;
 }
 
-/* .item--selected {
-  background: linear-gradient(-45deg, #00853e, #23d5ab);
-} */
-
 .item__inner {
   margin-top: 8px;
   display: flex;
@@ -111,4 +107,28 @@
 .score-container p {
   margin: 0;
   font-weight: bold;
+}
+
+.cta-container {
+  width: 200px;
+}
+
+.cta-container .cta {
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  background-color: white;
+  transition: all 0.3s;
+  font-weight: bold;
+  color: #000;
+  border: 1px solid #ddd;
+}
+
+.item--selected {
+  background: rgba(222, 222, 222, 0.4);
+}
+
+.item--selected .cta-container .cta {
+  color: #5a3939;
+  background-color: #ffc270;
 }
