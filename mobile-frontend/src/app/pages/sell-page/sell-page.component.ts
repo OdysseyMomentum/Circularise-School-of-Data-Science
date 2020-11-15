@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderService } from "../../header/header.service";
+import { ApiService } from "../../api/api.service";
 
 @Component({
   selector: 'app-sell-page',
@@ -32,10 +33,23 @@ export class SellPageComponent implements OnInit {
 	}
 
   constructor(
-  	private headerService: HeaderService) { }
+  	private headerService: HeaderService,
+  	private apiService: ApiService
+  	) { }
 
   ngOnInit(): void {
     this.headerService.setHeaderBack("/event_summary");
   }
+
+  public send(){
+  	// console.log("a")
+  	this.apiService.mint("0x4E799D483A36e954E641938f6b52B44aB107f1bf", 12, 14, 19, 1, 9001)
+  		.subscribe(response => {
+            console.log("done");
+        },
+		error => {
+		    console.error(error);
+		});
+    }
 
 }

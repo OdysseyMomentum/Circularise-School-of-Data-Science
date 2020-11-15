@@ -1,3 +1,4 @@
+import io
 import os
 
 from fastapi import FastAPI, Query, Request, BackgroundTasks, Header, Depends, Response
@@ -10,11 +11,7 @@ from utils.smart_contract import contract_instance
 
 WP_PUBLIC_KEY = os.environ["WP_PUBLIC_KEY"]
 
-blockchain = FastAPI(
-    title="WasteParty API Docs",
-    description="Docs for the Odyssey Hackathon API",
-    version="0.1.0",
-)
+blockchain = FastAPI()
 
 
 @blockchain.get("/balance")
@@ -131,8 +128,18 @@ def custom_openapi():
         routes=blockchain.routes,
     )
     openapi_schema["info"]["x-logo"] = {
-        "url": "https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png"
+        "url": "https://wasteparty.org/logo.png"
     }
+    openapi_schema["servers"] = [
+        {
+            "url": "http://127.0.0.1:8000/tokens",
+            "description": "Development server"
+        },
+        {
+            "url": "https://api.wasteparty.org/tokens",
+            "description": "Production server"
+        }
+    ]
     blockchain.openapi_schema = openapi_schema
     return blockchain.openapi_schema
 

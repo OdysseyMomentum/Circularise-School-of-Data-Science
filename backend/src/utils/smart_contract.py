@@ -19,7 +19,8 @@ class CollectableContract:
         self.nonce = self.w3.eth.getTransactionCount(self.account.address)
 
         contract_address = self.w3.toChecksumAddress(contract_address)
-        contract_abi = json.loads(open("./ethereum/ERC1155Collectable.json").read())
+        contract_abi = json.loads(
+            open("./ethereum/ERC1155Collectable.json").read())
 
         self.w3.eth.defaultAccount = self.account
         self.contract = self.w3.eth.contract(
@@ -58,6 +59,26 @@ class CollectableContract:
         )
         return current_id
 
+    def generate_metadata(self):
+        metadata = {
+            "chainId": 5,
+            "gas": 3000000,
+            "gasPrice": self.w3.toWei("1", "gwei"),
+            "nonce": self.nonce,
+            "from": self.account.address,
+        }
+
+        return metadata
+
+    def send_transaction(self, txn):
+        signed_txn = self.w3.eth.account.sign_transaction(
+            txn, private_key=self.priv
+        )
+        txn_hash = self.w3.eth.sendRawTransaction(
+            signed_txn.rawTransaction)
+
+        return txn_hash
+
     def mint_waste_token(
         self,
         to: str,
@@ -71,78 +92,45 @@ class CollectableContract:
         try:
             txn = self.contract.functions.mintWasteToken(
                 to, amount, certified, social, environment, impact, boosted
-            ).buildTransaction(
-                {
-                    "chainId": 5,
-                    "gas": 3000000,
-                    "gasPrice": self.w3.toWei("1", "gwei"),
-                    "nonce": self.nonce,
-                    "from": self.account.address,
-                }
-            )
+            ).buildTransaction(self.generate_metadata())
 
-            signed_txn = self.w3.eth.account.sign_transaction(
-                txn, private_key=self.priv
-            )
-            txn_hash = self.w3.eth.sendRawTransaction(signed_txn.rawTransaction)
-
+            txn_hash = self.send_transaction(txn)
+            
             self.nonce += 1
-
             return True, txn_hash
         except Exception as e:
             print(e)
+            self.nonce += 1
             return False, None
 
     def burn_waste_token(self, owner: str, amount: int, id: int):
         try:
             txn = self.contract.functions.burnWasteToken(
                 owner, amount, id
-            ).buildTransaction(
-                {
-                    "chainId": 5,
-                    "gas": 3000000,
-                    "gasPrice": self.w3.toWei("1", "gwei"),
-                    "nonce": self.nonce,
-                    "from": self.account.address,
-                }
-            )
+            ).buildTransaction(self.generate_metadata())
 
-            signed_txn = self.w3.eth.account.sign_transaction(
-                txn, private_key=self.priv
-            )
-            txn_hash = self.w3.eth.sendRawTransaction(signed_txn.rawTransaction)
-
+            txn_hash = self.send_transaction(txn)
+            
             self.nonce += 1
-
             return True, txn_hash
         except Exception as e:
             print(e)
+            self.nonce += 1
             return False, None
 
     def safe_batch_transfer(self, _from: str, to: str, ids: list, amounts: list):
         try:
             txn = self.contract.functions.safeBatchTransferFrom(
                 _from, to, ids, amounts, ""
-            ).buildTransaction(
-                {
-                    "chainId": 5,
-                    "gas": 3000000,
-                    "gasPrice": self.w3.toWei("1", "gwei"),
-                    "nonce": self.nonce,
-                    "from": self.account.address,
-                }
-            )
+            ).buildTransaction(self.generate_metadata())
 
-            signed_txn = self.w3.eth.account.sign_transaction(
-                txn, private_key=self.priv
-            )
-            txn_hash = self.w3.eth.sendRawTransaction(signed_txn.rawTransaction)
-
+            txn_hash = self.send_transaction(txn)
+            
             self.nonce += 1
-
             return True, txn_hash
         except Exception as e:
             print(e)
+            self.nonce += 1
             return False, None
 
 

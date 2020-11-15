@@ -6,12 +6,20 @@ server {
 }
 
 server {
-    root /var/www/html;
+    root /home/ubuntu/Circularise-School-of-Data-Science/landing-page;
     index index.html index.htm index.nginx-debian.html;
     server_name wasteparty.org; # managed by Certbot
 
     location / {
         try_files $uri $uri/ =404;
+    }
+
+    location /framework-paper {
+        return 301 https://$host/assets/framework-paper.pdf;
+    }
+
+    location /deck {
+        return 301 https://$host/assets/deck.pdf;
     }
 
     listen [::]:443 ssl ipv6only=on; # managed by Certbot
