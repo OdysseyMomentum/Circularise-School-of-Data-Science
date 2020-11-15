@@ -132,3 +132,15 @@
   color: #5a3939;
   background-color: #ffc270;
 }
+
+.slider-container[disabled] {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.recap {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}

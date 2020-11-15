@@ -9,9 +9,15 @@ export default class Total extends React.Component {
   render() {
     return (
       <div className="total">
-        <p>Total volume: {this.props.totalKg}kg</p>
-        <p>WP Score: {this.props.totalScore}</p>
-        <p>Price: ${this.props.totalPrice}</p>
+        <p>
+          Total volume: <b>{this.props.totalKg}kg</b>
+        </p>
+        <p>
+          WP Score: <b>{this.props.totalScore}</b>
+        </p>
+        <p>
+          Price: <b>${this.props.totalPrice}</b>
+        </p>
         <CTA
           buttonColor="green"
           text={`Buy now`}

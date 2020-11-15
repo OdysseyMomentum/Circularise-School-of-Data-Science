@@ -10,9 +10,9 @@
   width: 35%;
 }
 
-.slider-container .value {
+/* .slider-container .value {
   color: #666;
-}
+} */
 
 .slider-container .value--left {
   text-align: right;
