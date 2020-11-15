@@ -4,3 +4,5 @@ pydantic
 uvicorn
 jinja2
 web3
+qrcode
+pillow

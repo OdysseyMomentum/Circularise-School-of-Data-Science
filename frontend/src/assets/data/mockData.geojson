@@ -5,13 +5,12 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [-77.034084142948, 38.909671288923]
+        "coordinates": [12.305802, 98.780679]
       },
       "properties": {
         "name": "Batch 0",
         "id": "2022347336",
-        "address": "1471 P St NW",
-        "city": "Washington DC",
+        "location": "Tanintharyi River, Myanmar (Burma)",
         "weight": 1337,
         "price": 1300,
         "score": 2600,
@@ -23,13 +22,12 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [-77.049766, 38.900772]
+        "coordinates": [12.433156, 98.652782]
       },
       "properties": {
         "name": "Batch 1",
         "id": "2025078357",
-        "address": "2221 I St NW",
-        "city": "Washington DC",
+        "location": "Myeik, Myanmar (Burma)",
         "weight": 400,
         "price": 300,
         "score": 600,
@@ -41,13 +39,12 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [-77.043929, 38.910525]
+        "coordinates": [12.954479, 98.615618]
       },
       "properties": {
         "name": "Batch 2",
         "id": "2023879338",
-        "address": "1512 Connecticut Ave NW",
-        "city": "Washington DC",
+        "location": "Palaw, Myanmar (Burma)",
         "weight": 600,
         "price": 600,
         "score": 1200,
@@ -59,13 +56,12 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [-77.0672, 38.90516896]
+        "coordinates": [13.365708, 99.993682]
       },
       "properties": {
         "name": "Batch 3",
         "id": "2023379338",
-        "address": "3333 M St NW",
-        "city": "Washington DC",
+        "location": "Laem Yai, Samut Songkhram, Thailand",
         "weight": 40,
         "price": 20,
         "score": 50,
@@ -77,13 +73,12 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [-77.002583742142, 38.887041080933]
+        "coordinates": [13.528946, 100.267202]
       },
       "properties": {
         "name": "Batch 4",
         "id": "2025479338",
-        "address": "221 Pennsylvania Ave SE",
-        "city": "Washington DC",
+        "location": "Krok Krak, Samut Sakhon 74000, Thailand",
         "weight": 140,
         "price": 30,
         "score": 50,
@@ -95,14 +90,12 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [-77.097083330154, 38.980979]
+        "coordinates": [13.559680, 100.570065]
       },
       "properties": {
         "name": "Batch 5",
         "id": "3016547336",
-        "address": "4831 Bethesda Ave",
-        "cc": "US",
-        "city": "Bethesda",
+        "location": "Laem Fa Pha, Samut Prakan 10290, Thailand",
         "weight": 1300,
         "price": 600,
         "score": 2500,
@@ -114,13 +107,12 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [-77.359425054188, 38.958058116661]
+        "coordinates": [13.856651, 100.476236]
       },
       "properties": {
         "name": "Batch 6",
         "id": "5712030082",
-        "address": "11935 Democracy Dr",
-        "city": "Reston",
+        "location": "Sai Ma, Nonthaburi, Thailand",
         "weight": 4000,
         "price": 6300,
         "score": 3500,
@@ -132,13 +124,12 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [-77.10853099823, 38.880100922392]
+        "coordinates": [13.491220, 101.010001]
       },
       "properties": {
         "name": "Batch 7",
         "id": "7035222016",
-        "address": "4075 Wilson Blvd",
-        "city": "Arlington",
+        "location": "Bang Pakong, Chachoengsao, Thailand",
         "weight": 400,
         "price": 500,
         "score": 1200,
@@ -150,13 +141,12 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [-75.28784, 40.008008]
+        "coordinates": [12.672288, 101.158086]
       },
       "properties": {
         "name": "Batch 8",
         "id": "6106429400",
-        "address": "68 Coulter Ave",
-        "city": "Ardmore",
+        "location": "Map Ta Phut, Rayong, Thailand",
         "weight": 10,
         "price": 10,
         "score": 40,
@@ -168,13 +158,12 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [-75.20121216774, 39.954030175164]
+        "coordinates": [12.714829, 101.701531]
       },
       "properties": {
         "name": "Batch 9",
         "id": "2153861365",
-        "address": "3925 Walnut St",
-        "city": "Philadelphia",
+        "location": "Noen Kho, Rayong 21110, Thailand",
         "weight": 900,
         "price": 300,
         "score": 800,
@@ -186,13 +175,12 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [-77.043959498405, 38.903883387232]
+        "coordinates": [12.704303, 101.789418]
       },
       "properties": {
         "name": "Batch 10",
         "id": "2023313355",
-        "address": "1901 L St. NW",
-        "city": "Washington DC",
+        "location": "Chang Kham, Chanthaburi 22160, Thailand",
         "weight": 4,
         "price": 300,
         "score": 600,
@@ -204,18 +192,187 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [-76.933492720127, 38.99225245786]
+        "coordinates": [12.617505, 101.958553]
       },
       "properties": {
         "name": "Batch 11",
         "id": "2023313356",
-        "address": "8204 Baltimore Ave",
-        "city": "College Park",
+        "location": "Tha Mai, Chanthaburi 22120, Thailand",
         "weight": 90,
         "price": 20,
         "score": 50,
         "scoreMax": 200,
         "SDG": [5, 6]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [9.936597, 98.603410]
+      },
+      "properties": {
+        "name": "Batch 12",
+        "id": "2023313357",
+        "location": "Bang Rin, Ranong 85000, Thailand",
+        "weight": 300,
+        "price": 5,
+        "score": 10,
+        "scoreMax": 200,
+        "SDG": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.491535, 99.179171]
+      },
+      "properties": {
+        "name": "Batch 13",
+        "id": "2023313358",
+        "location": "Tha Taphao, Chumphon 86000, Thailand",
+        "weight": 80,
+        "price": 22,
+        "score": 40,
+        "scoreMax": 200,
+        "SDG": [5, 6]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [9.154892, 99.323104]
+      },
+      "properties": {
+        "name": "Batch 14",
+        "id": "2023313359",
+        "location": "Khlong Chanak, Surat Thani, Thailand",
+        "weight": 75,
+        "price": 25,
+        "score": 50,
+        "scoreMax": 200,
+        "SDG": [1, 4, 6]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [8.888261, 98.287258]
+      },
+      "properties": {
+        "name": "Batch 15",
+        "id": "2023313360",
+        "location": "Bang Nai Si, Phang-nga 82110, Thailand",
+        "weight": 500,
+        "price": 25,
+        "score": 60,
+        "scoreMax": 200,
+        "SDG": [4, 5, 6]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [8.541342, 99.990910]
+      },
+      "properties": {
+        "name": "Batch 16",
+        "id": "2023313361",
+        "location": "Pak Phun, Nakhon Si Thammarat, Thailand",
+        "weight": 175,
+        "price": 30,
+        "score": 77,
+        "scoreMax": 200,
+        "SDG": [5, 6]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.433673, 100.168888]
+      },
+      "properties": {
+        "name": "Batch 17",
+        "id": "2023313362",
+        "location": "Wang Bintong, Perlis, Malaysia",
+        "weight": 250,
+        "price": 23,
+        "score": 48,
+        "scoreMax": 200,
+        "SDG": [1, 6]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [5.639097, 100.435140]
+      },
+      "properties": {
+        "name": "Batch 18",
+        "id": "2023313363",
+        "location": "Bujang, Kedah, Malaysia",
+        "weight": 1580,
+        "price": 15,
+        "score": 30,
+        "scoreMax": 200,
+        "SDG": [5]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [5.572512, 100.409961]
+      },
+      "properties": {
+        "name": "Batch 19",
+        "id": "2023313364",
+        "location": "Kota Kuala Muda, Kedah, Malaysia",
+        "weight": 50,
+        "price": 29,
+        "score": 90,
+        "scoreMax": 200,
+        "SDG": [1, 4, 5, 6]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [4.921521, 100.552899]
+      },
+      "properties": {
+        "name": "Batch 20",
+        "id": "2023313365",
+        "location": "Selinsing, Perak, Malaysia",
+        "weight": 160,
+        "price": 23,
+        "score": 80,
+        "scoreMax": 200,
+        "SDG": [4, 5]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [5.341060, 103.115334]
+      },
+      "properties": {
+        "name": "Batch 21",
+        "id": "2023313366",
+        "location": "Kuala Nerus, Terengganu, Malaysia",
+        "weight": 400,
+        "price": 11,
+        "score": 10,
+        "scoreMax": 200,
+        "SDG": []
       }
     }
   ]
