@@ -12,9 +12,9 @@ export default class Map extends React.Component {
   };
 
   state = {
-    lat: 38.8966,
-    lng: -77.0664,
-    zoom: 10,
+    lat: 11.2418,
+    lng: 100.578,
+    zoom: 6.69,
     map: "",
   };
 
@@ -38,7 +38,7 @@ export default class Map extends React.Component {
     new mapboxgl.Popup({ closeOnClick: false })
       .setLngLat(currentFeature.geometry.coordinates)
       .setHTML(
-        `<h3>${currentFeature.properties.name}</h3>
+        `<h3>${currentFeature.properties.location}</h3>
         <h4><b>Weight</b>: ${currentFeature.properties.weight}kg</h4>
         <h4><b>Top SDG</b>:</h4>
         <div class='sdg-container'>
