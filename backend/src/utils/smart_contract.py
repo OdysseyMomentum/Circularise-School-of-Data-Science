@@ -77,16 +77,7 @@ class CollectableContract:
 
         return txn_hash
 
-    def mint_waste_token(
-        self,
-        to: str,
-        certified: bool,
-        amount: int,
-        social: int,
-        environment: int,
-        impact: int,
-        boosted: bool,
-    ):
+    def mint_waste_token(self, to: str, certified: bool, amount: int, social: int, environment: int, impact: int, boosted: bool):
         try:
             txn = self.contract.functions.mintWasteToken(
                 to, amount, certified, social, environment, impact, boosted
