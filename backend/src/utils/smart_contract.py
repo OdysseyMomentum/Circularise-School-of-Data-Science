@@ -97,10 +97,10 @@ class CollectableContract:
             txn_hash = self.send_transaction(txn)
             
             self.nonce += 1
-
             return True, txn_hash
         except Exception as e:
             print(e)
+            self.nonce += 1
             return False, None
 
     def burn_waste_token(self, owner: str, amount: int, id: int):
@@ -112,10 +112,10 @@ class CollectableContract:
             txn_hash = self.send_transaction(txn)
             
             self.nonce += 1
-
             return True, txn_hash
         except Exception as e:
             print(e)
+            self.nonce += 1
             return False, None
 
     def safe_batch_transfer(self, _from: str, to: str, ids: list, amounts: list):
@@ -127,10 +127,10 @@ class CollectableContract:
             txn_hash = self.send_transaction(txn)
             
             self.nonce += 1
-
             return True, txn_hash
         except Exception as e:
             print(e)
+            self.nonce += 1
             return False, None
 
 
