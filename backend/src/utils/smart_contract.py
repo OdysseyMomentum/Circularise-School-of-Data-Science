@@ -28,7 +28,15 @@ class CollectableContract:
         return balance
 
     def get_token(self, id: int):
-        token = self.contract.functions.getToken(id).call({'from': self.account.address})
+        raw_token = self.contract.functions.getToken(id).call({'from': self.account.address})
+        token = {
+            'creator': raw_token[0],
+            'certified': raw_token[1],
+            'social': raw_token[2][0],
+            'environment': raw_token[2][1],
+            'impact': raw_token[2][2],
+            'booster': raw_token[2][3]
+        }
         return token
 
     def get_current_id(self):
