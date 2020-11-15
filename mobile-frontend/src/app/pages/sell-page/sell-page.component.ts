@@ -9,7 +9,7 @@ import { ApiService } from "../../api/api.service";
 })
 export class SellPageComponent implements OnInit {
 
-
+	public waiting: boolean = false;
 
 	public event: any = {
 		"name": "Get Wasted Party hardy",
@@ -44,8 +44,14 @@ export class SellPageComponent implements OnInit {
   public send(){
   	// console.log("a")
   	this.apiService.mint("0x4E799D483A36e954E641938f6b52B44aB107f1bf", 12, 14, 19, 1, 9001)
-  		.subscribe(response => {
-            console.log("done");
+  		.subscribe((response: any) => {
+  			let url = "https://goerli.etherscan.io/tx/" + response.txnHash;
+  			setTimeout(()=>{
+  				window.open(url, "_blank");
+  				this.waiting=false;
+  			},3000);
+  			this.waiting=true;
+            console.log(response);
         },
 		error => {
 		    console.error(error);

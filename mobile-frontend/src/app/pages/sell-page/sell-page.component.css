@@ -77,3 +77,7 @@ mat-card.active:hover{
 .event-image{
 	width:100%;
 }
+
+mat-spinner{
+	margin:auto;
+}

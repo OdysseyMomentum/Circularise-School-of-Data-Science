@@ -29,16 +29,6 @@ def generate_pdf_certificate(token: WasteToken, txn_hash: str):
     buffer.seek(0)
     img_data_uri = base64.b64encode(buffer.read()).decode("ascii")
 
-    html = certificate_template.render(
-        creator=token.creator,
-        social=token.social,
-        environment=token.environment,
-        impact=token.impact,
-        booster=token.booster,
-        waste_points=token.waste_points,
-        txn_hash=txn_hash,
-        logo_data_uri=logo_data_uri,
-        img_data_uri=img_data_uri,
-    )
+    html = certificate_template.render(creator=token.creator, social=token.social, environment=token.environment, impact=token.impact, booster=token.booster, waste_points=token.waste_points, txn_hash=txn_hash, logo_data_uri=logo_data_uri, img_data_uri=img_data_uri)
 
     return pdfkit.from_string(html, False)

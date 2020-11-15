@@ -18,6 +18,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 // import { MatFormFieldModule } from '@angular/material/form-field';
 
 import {MatSelectModule} from '@angular/material/select';
@@ -68,6 +69,7 @@ import { SellPageComponent } from './pages/sell-page/sell-page.component';
     HttpClientModule,
     MatCardModule,
     MatExpansionModule,
+    MatProgressSpinnerModule,
     // MatGridListModule
   ],
   exports:[MatInputModule, MatFormFieldModule],

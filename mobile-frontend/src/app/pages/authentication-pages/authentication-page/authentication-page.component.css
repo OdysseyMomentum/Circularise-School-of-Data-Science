@@ -3,9 +3,11 @@ img {
 }
 .main-div {
 	height:100vh;
+	background-color: black;
 	background-image: url("/assets/images/bg.jpg");
 	background-size: contain;
 	background-repeat: no-repeat;
+	background-position: center top;
 	/*background: #f00;*/
 	/*background-image: 'assets/images/bg.jpg';*/
 }
@@ -20,4 +22,18 @@ mat-menu{
 }
 .spacer-top{
 	height:100px;
+}
+
+.mobile-preview{
+	width:200px;
+	margin-left: calc(50% - 300px)l
+}
+.mobile-preview-frame{
+	width:100%;
+	text-align: center;
+	color:white;
+	font-size: 24px;
+}
+.select-menu{
+	color:white;
 }
