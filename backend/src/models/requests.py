@@ -1,8 +1,13 @@
+import os
+
 from pydantic import BaseModel
+
+WP_PUBLIC_KEY = os.environ["WP_PUBLIC_KEY"]
+WP_PUBLIC_KEY_RECEIVER = os.environ["WP_PUBLIC_KEY_RECEIVER"]
 
 
 class WasteToken(BaseModel):
-    creator: str = '0x4E799D483A36e954E641938f6b52B44aB107f1bf'
+    creator: str = WP_PUBLIC_KEY
     social: int = 1000
     environment: int = 2000
     impact: int = 3000
@@ -11,13 +16,13 @@ class WasteToken(BaseModel):
 
 
 class BurnData(BaseModel):
-    owner: str = '0x4E799D483A36e954E641938f6b52B44aB107f1bf'
+    owner: str = WP_PUBLIC_KEY
     amount: int = 100
     id: int = 0
 
 
 class TransferData(BaseModel):
-    owner: str = '0x4E799D483A36e954E641938f6b52B44aB107f1bf'
-    to: str = '0xbf5A4176A00d7589362956FFE5e7d099970973AB'
+    owner: str = WP_PUBLIC_KEY
+    to: str = WP_PUBLIC_KEY_RECEIVER
     amounts: list = [100, 200]
     ids: list = [0, 1]
