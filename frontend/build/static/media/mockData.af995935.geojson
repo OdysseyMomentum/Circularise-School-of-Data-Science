@@ -1,0 +1,379 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [98.780679, 12.305802]
+      },
+      "properties": {
+        "name": "Tanintharyi River",
+        "id": "2022347336",
+        "location": "Tanintharyi River, Myanmar (Burma)",
+        "weight": 1337,
+        "price": 1300,
+        "score": 2600,
+        "scoreMax": 5000,
+        "SDG": [1, 4, 5]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [98.652782, 12.433156]
+      },
+      "properties": {
+        "name": "Myeik",
+        "id": "2025078357",
+        "location": "Myeik, Myanmar (Burma)",
+        "weight": 400,
+        "price": 300,
+        "score": 600,
+        "scoreMax": 900,
+        "SDG": [1]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [98.615618, 12.954479]
+      },
+      "properties": {
+        "name": "Palaw",
+        "id": "2023879338",
+        "location": "Palaw, Myanmar (Burma)",
+        "weight": 600,
+        "price": 600,
+        "score": 1200,
+        "scoreMax": 1800,
+        "SDG": [1, 5, 9]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [99.993682, 13.365708]
+      },
+      "properties": {
+        "name": "Laem Yai",
+        "id": "2023379338",
+        "location": "Laem Yai, Samut Songkhram, Thailand",
+        "weight": 40,
+        "price": 20,
+        "score": 50,
+        "scoreMax": 100,
+        "SDG": [8]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [100.267202, 13.528946]
+      },
+      "properties": {
+        "name": "Krok Krak",
+        "id": "2025479338",
+        "location": "Krok Krak, Samut Sakhon 74000, Thailand",
+        "weight": 140,
+        "price": 30,
+        "score": 50,
+        "scoreMax": 200,
+        "SDG": [4]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [100.570065, 13.559680]
+      },
+      "properties": {
+        "name": "Laem Fa Pha",
+        "id": "3016547336",
+        "location": "Laem Fa Pha, Samut Prakan 10290, Thailand",
+        "weight": 1300,
+        "price": 600,
+        "score": 2500,
+        "scoreMax": 3000,
+        "SDG": [1, 5, 6]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [100.476236, 13.856651]
+      },
+      "properties": {
+        "name": "Sai Ma",
+        "id": "5712030082",
+        "location": "Sai Ma, Nonthaburi, Thailand",
+        "weight": 4000,
+        "price": 6300,
+        "score": 3500,
+        "scoreMax": 5000,
+        "SDG": [2, 4, 5, 6, 7]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [101.010001, 13.491220]
+      },
+      "properties": {
+        "name": "Bang Pakong",
+        "id": "7035222016",
+        "location": "Bang Pakong, Chachoengsao, Thailand",
+        "weight": 400,
+        "price": 500,
+        "score": 1200,
+        "scoreMax": 3200,
+        "SDG": [1, 5, 7, 8]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [101.158086, 12.672288]
+      },
+      "properties": {
+        "name": "Map Ta Phut",
+        "id": "6106429400",
+        "location": "Map Ta Phut, Rayong, Thailand",
+        "weight": 10,
+        "price": 10,
+        "score": 40,
+        "scoreMax": 50,
+        "SDG": [1]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [101.701531, 12.714829]
+      },
+      "properties": {
+        "name": "Noen Kho",
+        "id": "2153861365",
+        "location": "Noen Kho, Rayong 21110, Thailand",
+        "weight": 900,
+        "price": 300,
+        "score": 800,
+        "scoreMax": 1000,
+        "SDG": [4, 5, 9]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [101.789418, 12.704303]
+      },
+      "properties": {
+        "name": "Chang Kham",
+        "id": "2023313355",
+        "location": "Chang Kham, Chanthaburi 22160, Thailand",
+        "weight": 4,
+        "price": 300,
+        "score": 600,
+        "scoreMax": 1000,
+        "SDG": [6]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [101.958553, 12.617505]
+      },
+      "properties": {
+        "name": "Tha Mai",
+        "id": "2023313356",
+        "location": "Tha Mai, Chanthaburi 22120, Thailand",
+        "weight": 90,
+        "price": 20,
+        "score": 50,
+        "scoreMax": 200,
+        "SDG": [5, 6]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [98.603410, 9.936597]
+      },
+      "properties": {
+        "name": "Bang Rin",
+        "id": "2023313357",
+        "location": "Bang Rin, Ranong 85000, Thailand",
+        "weight": 300,
+        "price": 5,
+        "score": 10,
+        "scoreMax": 200,
+        "SDG": [4]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [99.179171, 10.491535]
+      },
+      "properties": {
+        "name": "Tha Taphao",
+        "id": "2023313358",
+        "location": "Tha Taphao, Chumphon 86000, Thailand",
+        "weight": 80,
+        "price": 22,
+        "score": 40,
+        "scoreMax": 200,
+        "SDG": [5, 6]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [99.323104, 9.154892]
+      },
+      "properties": {
+        "name": "Khlong Chanak",
+        "id": "2023313359",
+        "location": "Khlong Chanak, Surat Thani, Thailand",
+        "weight": 75,
+        "price": 25,
+        "score": 50,
+        "scoreMax": 200,
+        "SDG": [1, 4, 6]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [98.287258, 8.888261]
+      },
+      "properties": {
+        "name": "Bang Nai Si",
+        "id": "2023313360",
+        "location": "Bang Nai Si, Phang-nga 82110, Thailand",
+        "weight": 500,
+        "price": 25,
+        "score": 60,
+        "scoreMax": 200,
+        "SDG": [4, 5, 6]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [99.990910, 8.541342]
+      },
+      "properties": {
+        "name": "Pak Phun",
+        "id": "2023313361",
+        "location": "Pak Phun, Nakhon Si Thammarat, Thailand",
+        "weight": 175,
+        "price": 30,
+        "score": 77,
+        "scoreMax": 200,
+        "SDG": [5, 6]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [100.168888, 6.433673]
+      },
+      "properties": {
+        "name": "Wang Bintong",
+        "id": "2023313362",
+        "location": "Wang Bintong, Perlis, Malaysia",
+        "weight": 250,
+        "price": 23,
+        "score": 48,
+        "scoreMax": 200,
+        "SDG": [1, 6]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [100.435140, 5.639097]
+      },
+      "properties": {
+        "name": "Bujang",
+        "id": "2023313363",
+        "location": "Bujang, Kedah, Malaysia",
+        "weight": 1580,
+        "price": 15,
+        "score": 30,
+        "scoreMax": 200,
+        "SDG": [5]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [100.409961, 5.572512]
+      },
+      "properties": {
+        "name": "Kota Kuala Muda",
+        "id": "2023313364",
+        "location": "Kota Kuala Muda, Kedah, Malaysia",
+        "weight": 50,
+        "price": 29,
+        "score": 90,
+        "scoreMax": 200,
+        "SDG": [1, 4, 5, 6]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [100.552899, 4.921521]
+      },
+      "properties": {
+        "name": "Selinsing",
+        "id": "2023313365",
+        "location": "Selinsing, Perak, Malaysia",
+        "weight": 160,
+        "price": 23,
+        "score": 80,
+        "scoreMax": 200,
+        "SDG": [4, 5]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.115334, 5.341060]
+      },
+      "properties": {
+        "name": "Kuala Nerus",
+        "id": "2023313366",
+        "location": "Kuala Nerus, Terengganu, Malaysia",
+        "weight": 400,
+        "price": 11,
+        "score": 10,
+        "scoreMax": 200,
+        "SDG": [3]
+      }
+    }
+  ]
+}
