@@ -101,6 +101,14 @@
 			align-items: space-between;
 			justify-content: space-between;
 		}
+		@media (max-width: 789px) { 
+			.menu {
+				flex-direction: column;
+			}
+			.download-container {
+				margin-top: 15px;;
+			}
+		}
 		.menu ul {
 			list-style: none;
 			display: flex;
@@ -127,6 +135,18 @@
 			height: 3px;
 			background: #FFF;
 		}
+		.download-container {
+			display: flex;
+			flex-direction: row;
+			align-items: flex-start;
+			justify-content: flex-start;
+		}
+		.download {
+			margin-right: 15px;
+		}
+		.download--deck {
+			margin-right: 0;
+		}
 		.download button {
 			border: 1px solid #DDD;
 			border-radius: 5px;
@@ -145,6 +165,13 @@
 			align-items: flex-start;
 			justify-content: flex-start;
 		}
+		@media (max-width: 1199px) { 
+			.hero-section {
+				flex-direction: column-reverse;
+				text-align: center;
+				align-items: center;
+			}
+		}
 		.hero-section h1 {
 			color: #FFF;
 			font-size: 3rem;
@@ -152,6 +179,12 @@
 		.hero-section p {
 			color: #FFF;
 		}
+		@media (max-width: 1199px) { 
+			.hero-section .illustration img {
+				height: 400px;
+			}
+		}
+		
 		.explainer {
 			background: #FFF;
 		}
@@ -162,6 +195,19 @@
 			justify-content: flex-start;
 			list-style: none;
 		}
+		@media (max-width: 789px) { 
+			.explainer ul {
+				flex-direction: column;
+				text-align: center;
+			}
+			.explainer ul li {
+				width: 100% !important;
+			}
+			.explainer ul .icon img {
+				margin: 0 auto;
+			}
+		}
+
 		.explainer ul li {
 			padding: 30px 50px;
 			width: 33%;
@@ -216,12 +262,21 @@
 						</a>
 					</li>
 				</ul>
-				<div class="download">
-					<a href="https://wasteparty.org/framework-paper ">
-						<button>
-							Download WastePoints Framework v0.1
-						</button>
-					</a>
+				<div class="download-container">
+					<div class="download">
+						<a href="https://wasteparty.org/framework-paper">
+							<button>
+								Download WastePoints Framework v0.1
+							</button>
+						</a>
+					</div>
+					<div class="download download--deck">
+						<a href="https://wasteparty.org/deck">
+							<button>
+								Download our deck
+							</button>
+						</a>
+					</div>
 				</div>
 			</nav>
 			<section class="hero-section">
