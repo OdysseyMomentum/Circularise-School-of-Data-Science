@@ -14,7 +14,7 @@ server {
         try_files $uri $uri/ =404;
     }
 
-    location framework-paper {
+    location /framework-paper/ {
         return 301 https://$host/framework-paper.pdf;
     }
 
