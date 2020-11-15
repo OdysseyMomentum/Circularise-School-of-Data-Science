@@ -57,16 +57,7 @@ def get_token_by_id(request: Request, id: int = 0):
 
 @blockchain.post("/mint")
 def mint_token(request: Request, data: WasteToken):
-    minted, txn_hash = contract_instance.mint_waste_token(
-        data.creator,
-        False,
-        data.waste_points,
-        data.social,
-        data.environment,
-        data.impact,
-        data.booster,
-    )
-
+    minted, txn_hash = contract_instance.mint_waste_token(data.creator, False, data.waste_points, data.social, data.environment, data.impact, data.booster)
     if not minted:
         return JSONResponse({"success": False}, status_code=409)
 
