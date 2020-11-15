@@ -56,5 +56,47 @@ class CollectableContract:
             print(e)
             return False, None
 
-contract_instance = CollectableContract('0xB17eed02491290B5689AA5Aede5e727EF7a3437E')
+    def burn_waste_token(self, owner: str, amount: int, id: int):
+        try:
+            txn = self.contract.functions.burnWasteToken(owner, amount, id).buildTransaction(
+                {
+                'chainId': 5,
+                'gas': 3000000,
+                'gasPrice': self.w3.toWei('1', 'gwei'),
+                'nonce': self.nonce,
+                'from': self.account.address
+            })
+
+            signed_txn = self.w3.eth.account.sign_transaction(txn, private_key=self.priv)
+            txn_hash = self.w3.eth.sendRawTransaction(signed_txn.rawTransaction)
+            
+            self.nonce += 1
+            
+            return True, txn_hash
+        except Exception as e:
+            print(e)
+            return False, None
+
+    def safe_batch_transfer(self, _from: str, to: str, ids: list, amounts: list):
+        try:
+            txn = self.contract.functions.safeBatchTransferFrom(_from, to, ids, amounts, '').buildTransaction(
+                {
+                'chainId': 5,
+                'gas': 3000000,
+                'gasPrice': self.w3.toWei('1', 'gwei'),
+                'nonce': self.nonce,
+                'from': self.account.address
+            })
+
+            signed_txn = self.w3.eth.account.sign_transaction(txn, private_key=self.priv)
+            txn_hash = self.w3.eth.sendRawTransaction(signed_txn.rawTransaction)
+            
+            self.nonce += 1
+            
+            return True, txn_hash
+        except Exception as e:
+            print(e)
+            return False, None
+
+contract_instance = CollectableContract('0x74944eE3aE20c0311c9afF3e86Ea7A879b171f04')
 
