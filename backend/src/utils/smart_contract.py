@@ -33,13 +33,12 @@ class CollectableContract:
         return token
 
     def get_current_id(self):
-        current_id = self.contract.functions.currentId().call({'from': self.account.address})
+        current_id = self.contract.functions.current_id().call({'from': self.account.address})
         return current_id
 
-    def mint_waste_token(self, to: str, amount: int, social: int, environment: int, impact: int, boosted: bool):
+    def mint_waste_token(self, to: str, certified: bool, amount: int, social: int, environment: int, impact: int, boosted: bool):
         try:
-            # nonce = self.w3.eth.getTransactionCount(to)
-            txn = self.contract.functions.mintWasteToken(to, amount, social, environment, impact, boosted).buildTransaction(
+            txn = self.contract.functions.mintWasteToken(to, amount, certified, social, environment, impact, boosted).buildTransaction(
                 {
                 'chainId': 5,
                 'gas': 3000000,
@@ -47,17 +46,18 @@ class CollectableContract:
                 'nonce': self.nonce,
                 'from': self.account.address
             })
-            print(txn)
+
             signed_txn = self.w3.eth.account.sign_transaction(txn, private_key=self.priv)
-            print(signed_txn.hash)
+
             txn_hash = self.w3.eth.sendRawTransaction(signed_txn.rawTransaction)
-            tx_receipt = self.w3.eth.waitForTransactionReceipt(txn_hash)
-            print(tx_receipt)
+            # txn_receipt = self.w3.eth.waitForTransactionReceipt(txn_hash)
+            
             self.nonce += 1
-            return True, tx_receipt
+            
+            return True, txn_hash
         except Exception as e:
             print(e)
             return False, None
 
-contract_instance = CollectableContract('0x2FA8F3B1BD85056ccf326954a5209435571bCEE7')
+contract_instance = CollectableContract('0xB17eed02491290B5689AA5Aede5e727EF7a3437E')
 

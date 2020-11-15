@@ -12,22 +12,28 @@ blockchain = FastAPI(openapi_url=None, redoc_url=None, docs_url=None
 
 @blockchain.post('/certificate')
 def get_certificate(request: Request, data: PdfInput):
-    minted, receipt = contract_instance.mint_waste_token(
+    minted, txn_hash = contract_instance.mint_waste_token(
         data.creator,
+        True,
         data.waste_points,
         data.social,
         data.environment,
         data.impact,
-        False
+        data.booster
     )    
 
     if not minted:
         return JSONResponse({'minted': False}, status_code=409)
 
-    print('txreceipt', receipt)
-    txn_hash = receipt['transactionHash'].hex()
+    try:
+        txn_receipt = contract_instance.w3.eth.waitForTransactionReceipt(txn_hash)
+    except:
+        return JSONResponse({'message': 'error'}, status_code=409)
 
-    cert = generate_pdf_certificate(data, txn_hash)
+    returned_hash = txn_receipt['transactionHash'].hex()
+
+    cert = generate_pdf_certificate(data, returned_hash)
+
     return Response(content=cert, media_type="application/pdf")
 
 
@@ -62,18 +68,17 @@ def get_id(request: Request, id: int):
 
 @blockchain.post('/mint')
 def post_mint(request: Request):
-    minted, receipt = contract_instance.mint_waste_token(
+    minted, txn_hash = contract_instance.mint_waste_token(
         '0x4E799D483A36e954E641938f6b52B44aB107f1bf',
+        False,
         1000,
         1000,
         1000,
         1000,
-        False
+        1000
     )
 
     if not minted:
         return JSONResponse({'minted': False}, status_code=409)
 
-    
-
-    return JSONResponse({'minted': True, 'txnReceipt': receipt})
+    return JSONResponse({'minted': True, 'txnHash': txn_hash.hex()})

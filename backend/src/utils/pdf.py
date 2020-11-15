@@ -23,11 +23,10 @@ class PdfInput(BaseModel):
     impact: int
     booster: int
     waste_points: int
-    txn_hash: str = None
 
 
-def generate_pdf_certificate(input: PdfInput):
-    img = qrcode.make(f"{explorer}{input.txn_hash}")
+def generate_pdf_certificate(input: PdfInput, txn_hash: str):
+    img = qrcode.make(f"{explorer}{txn_hash}")
 
     buffer = io.BytesIO()
     img.save(buffer, format="PNG")
@@ -41,7 +40,7 @@ def generate_pdf_certificate(input: PdfInput):
         impact=input.impact,
         booster=input.booster,
         waste_points=input.waste_points,
-        txn_hash=input.txn_hash,
+        txn_hash=txn_hash,
         img_data_uri=img_data_uri,
     )
 
