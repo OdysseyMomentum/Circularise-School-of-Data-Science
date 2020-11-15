@@ -1,5 +1,3 @@
-import io
-
 from fastapi import FastAPI, Query, Request, BackgroundTasks, Header, Depends, Response
 from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 

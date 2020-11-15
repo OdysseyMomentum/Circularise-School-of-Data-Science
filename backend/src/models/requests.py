@@ -11,13 +11,13 @@ class WasteToken(BaseModel):
 
 
 class BurnData(BaseModel):
-    owner: str
-    amount: int
-    id: int
+    owner: str = '0x4E799D483A36e954E641938f6b52B44aB107f1bf'
+    amount: int = 100
+    id: int = 0
 
 
 class TransferData(BaseModel):
-    owner: str
-    to: str
-    amounts: list
-    ids: list
+    owner: str = '0x4E799D483A36e954E641938f6b52B44aB107f1bf'
+    to: str = '0xbf5A4176A00d7589362956FFE5e7d099970973AB'
+    amounts: list = [100, 200]
+    ids: list = [0, 1]
