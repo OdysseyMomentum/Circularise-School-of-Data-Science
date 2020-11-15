@@ -58,37 +58,31 @@ class CollectableContract:
         )
         return current_id
 
-    def mint_waste_token(
-        self,
-        to: str,
-        certified: bool,
-        amount: int,
-        social: int,
-        environment: int,
-        impact: int,
-        boosted: bool,
-    ):
+    def generate_metadata(self):
+        metadata = {
+            "chainId": 5,
+            "gas": 3000000,
+            "gasPrice": self.w3.toWei("1", "gwei"),
+            "nonce": self.nonce,
+            "from": self.account.address,
+        }
+
+        return metadata
+
+    def send_transaction(self, txn):
+        signed_txn = self.w3.eth.account.sign_transaction(txn, private_key=self.priv)
+        txn_hash = self.w3.eth.sendRawTransaction(signed_txn.rawTransaction)
+
+        self.nonce += 1
+
+        return txn_hash
+
+    def mint_waste_token(self, to: str, certified: bool, amount: int, social: int, environment: int, impact: int, boosted: bool):
         try:
             txn = self.contract.functions.mintWasteToken(
                 to, amount, certified, social, environment, impact, boosted
-            ).buildTransaction(
-                {
-                    "chainId": 5,
-                    "gas": 3000000,
-                    "gasPrice": self.w3.toWei("1", "gwei"),
-                    "nonce": self.nonce,
-                    "from": self.account.address,
-                }
-            )
-
-            signed_txn = self.w3.eth.account.sign_transaction(
-                txn, private_key=self.priv
-            )
-            txn_hash = self.w3.eth.sendRawTransaction(signed_txn.rawTransaction)
-
-            self.nonce += 1
-
-            return True, txn_hash
+            ).buildTransaction(self.generate_metadata())
+            return True, self.send_transaction(txn)
         except Exception as e:
             print(e)
             return False, None
@@ -97,24 +91,8 @@ class CollectableContract:
         try:
             txn = self.contract.functions.burnWasteToken(
                 owner, amount, id
-            ).buildTransaction(
-                {
-                    "chainId": 5,
-                    "gas": 3000000,
-                    "gasPrice": self.w3.toWei("1", "gwei"),
-                    "nonce": self.nonce,
-                    "from": self.account.address,
-                }
-            )
-
-            signed_txn = self.w3.eth.account.sign_transaction(
-                txn, private_key=self.priv
-            )
-            txn_hash = self.w3.eth.sendRawTransaction(signed_txn.rawTransaction)
-
-            self.nonce += 1
-
-            return True, txn_hash
+            ).buildTransaction(self.generate_metadata())
+            return True, self.send_transaction(txn)
         except Exception as e:
             print(e)
             return False, None
@@ -123,24 +101,8 @@ class CollectableContract:
         try:
             txn = self.contract.functions.safeBatchTransferFrom(
                 _from, to, ids, amounts, ""
-            ).buildTransaction(
-                {
-                    "chainId": 5,
-                    "gas": 3000000,
-                    "gasPrice": self.w3.toWei("1", "gwei"),
-                    "nonce": self.nonce,
-                    "from": self.account.address,
-                }
-            )
-
-            signed_txn = self.w3.eth.account.sign_transaction(
-                txn, private_key=self.priv
-            )
-            txn_hash = self.w3.eth.sendRawTransaction(signed_txn.rawTransaction)
-
-            self.nonce += 1
-
-            return True, txn_hash
+            ).buildTransaction(self.generate_metadata())
+            return True, self.send_transaction(txn)
         except Exception as e:
             print(e)
             return False, None

@@ -1,3 +1,4 @@
+import io
 import os
 
 from fastapi import FastAPI, Query, Request, BackgroundTasks, Header, Depends, Response
@@ -9,6 +10,15 @@ from utils.pdf import generate_pdf_certificate
 from utils.smart_contract import contract_instance
 
 WP_PUBLIC_KEY = os.environ["WP_PUBLIC_KEY"]
+
+waste_party_logo = "https://wasteparty.org/logo.png"
+waste_party_env_endpoints = [
+    {"url": "http://127.0.0.1:8000/tokens", "description": "Development server"},
+    {
+        "url": "https://api.wasteparty.org/tokens",
+        "description": "Production server",
+    },
+]
 
 blockchain = FastAPI()
 
@@ -47,16 +57,7 @@ def get_token_by_id(request: Request, id: int = 0):
 
 @blockchain.post("/mint")
 def mint_token(request: Request, data: WasteToken):
-    minted, txn_hash = contract_instance.mint_waste_token(
-        data.creator,
-        False,
-        data.waste_points,
-        data.social,
-        data.environment,
-        data.impact,
-        data.booster,
-    )
-
+    minted, txn_hash = _mint_token(data, False)
     if not minted:
         return JSONResponse({"success": False}, status_code=409)
 
@@ -65,32 +66,25 @@ def mint_token(request: Request, data: WasteToken):
 
 @blockchain.post("/mint/certified")
 def mint_certified_token(request: Request, data: WasteToken):
-    # minted, txn_hash = contract_instance.mint_waste_token(
-    #     data.creator,
-    #     True,
-    #     data.waste_points,
-    #     data.social,
-    #     data.environment,
-    #     data.impact,
-    #     data.booster,
-    # )
+    minted, txn_hash = _mint_token(data, True)
 
-    # if not minted:
-    #     return JSONResponse({"success": False}, status_code=409)
+    if not minted:
+        return JSONResponse({"success": False}, status_code=409)
 
-    # try:
-    #     txn_receipt = contract_instance.w3.eth.waitForTransactionReceipt(
-    #         txn_hash)
-    # except Exception as e:
-    #     return JSONResponse({"success": False, "error": str(e)}, status_code=409)
+    try:
+        txn_receipt = contract_instance.w3.eth.waitForTransactionReceipt(
+            txn_hash)
+    except Exception as e:
+        return JSONResponse({"success": False, "error": str(e)}, status_code=409)
 
-    # returned_hash = txn_receipt["transactionHash"].hex()
-
-    returned_hash = "testing"
-
+    returned_hash = txn_receipt["transactionHash"].hex()
     cert = generate_pdf_certificate(data, returned_hash)
 
     return Response(content=cert, media_type="application/pdf")
+
+
+def _mint_token(data: WasteToken, is_mint_token: bool):
+    return contract_instance.mint_waste_token(data.creator, is_mint_token, data.waste_points, data.social, data.environment, data.impact, data.booster)
 
 
 @blockchain.post("/burn")
@@ -126,19 +120,8 @@ def custom_openapi():
         description="The Wasteparty API for Odyssey Momentum",
         routes=blockchain.routes,
     )
-    openapi_schema["info"]["x-logo"] = {
-        "url": "https://wasteparty.org/logo.png"
-    }
-    openapi_schema["servers"] = [
-        {
-            "url": "http://127.0.0.1:8000/tokens",
-            "description": "Development server"
-        },
-        {
-            "url": "https://api.wasteparty.org/tokens",
-            "description": "Production server"
-        }
-    ]
+    openapi_schema["info"]["x-logo"] = {"url": waste_party_logo}
+    openapi_schema["servers"] = waste_party_env_endpoints
     blockchain.openapi_schema = openapi_schema
     return blockchain.openapi_schema
 

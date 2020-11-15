@@ -2033,8 +2033,8 @@
             max-width: 150;
             max-height: 150;
             position: absolute;
-            bottom: 0;
-            right: 0
+            bottom: -200;
+            right: -100
         }
     </style>
 </head>
@@ -2042,9 +2042,9 @@
 <body>
     <div class="c28">
         <div>
-            <p class="c21"><img class="logo" src="data:image/png;base64,{{ logo_data_uri }}" /></p>
+            <p class="c21"><img class="logo" src="https://wasteparty.org/logo.png"/></p>
         </div>
-        <p class="c11 c18 title" id="h.e28c1zp2oemy" style="margin-top:100;"><span class="c43"></span></p>
+        <p class="c11 c18 title" id="h.e28c1zp2oemy" style="margin-top:150;"><span class="c43"></span></p>
         <p class="c30 c18 c39 title" id="h.ebjvaihivdem"><span>WP Certificate</span></p>
         <p class="c11"><span class="c50"></span></p><a id="t.fd0378c0822d633bded1e1128831a5127a231979"></a><a
             id="t.0"></a>
@@ -2058,24 +2058,22 @@
                     </td>
                     <td class="c5" colspan="1" rowspan="1">
                         <h4 class="c2 c18" id="h.2ld7u75uhr8p"><span class="c19">PREPARED DATE</span></h4>
-                        <h4 class="c2 c34 c18" id="h.l20sm6c0g7rv"><span class="c22">Jun 06, 20XX</span></h4>
+                        <h4 class="c2 c34 c18" id="h.l20sm6c0g7rv"><span class="c22">15-11-2020</span></h4>
                         <p class="c15 c26"><span class="c19"></span></p>
-                        <h4 class="c2 c18" id="h.iyo0qomhrkig"><span class="c19">EXP. DATE</span></h4>
-                        <h4 class="c2 c18 c34" id="h.bkm8qnqhwoth"><span class="c22">Aug 06, 20XX</span></h4>
                     </td>
                 </tr>
             </tbody>
         </table>
         <p class="c11"><span class="c22"></span></p><a id="t.a5d926ea3c39eee0e2bb796d24c0e4dbd9a94a37"></a><a
             id="t.1"></a>
-        <table class="c48">
+        <table class="c48" style="margin-left:40;">
             <tbody>
                 <tr class="c53">
                     <td class="c25" colspan="1" rowspan="1">
-                        <p class="c30 c38"><span class="c37">ITEM</span></p>
+                        <p class="c30 c38"><span class="c37">TYPE</span></p>
                     </td>
                     <td class="c1 c29" colspan="1" rowspan="1">
-                        <p class="c35"><span class="c37">QTY</span></p>
+                        <p class="c35"><span class="c37">AMOUNT</span></p>
                     </td>
                 </tr>
                 <tr class="c12">
@@ -2112,7 +2110,7 @@
                 </tr>
                 <tr class="c54">
                     <td class="c40" colspan="1" rowspan="1">
-                        <p class="c0"><span class="c8">Waste Points</span></p>
+                        <p class="c0"><span class="c8"><b>Waste Points</b></span></p>
                     </td>
                     <td class="c1" colspan="1" rowspan="1">
                         <p class="c2"><span class="c8">{{ waste_points }}</span></p>
@@ -2120,10 +2118,6 @@
                 </tr>
             </tbody>
         </table>
-
-        <!-- <h1 class="c30 c39 c18 c49" id="h.i3oksnyre34u"><span>Transaction hash:</span>
-        <h1 class="c30 c39 c18 c49" id="h.i3oksnyre34u"><span>{{ txn_hash }}</span> -->
-
         <img class="qrcode" src="data:image/png;base64,{{ img_data_uri }}" />
         </div>
     </div>

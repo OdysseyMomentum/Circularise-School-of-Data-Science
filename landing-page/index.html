@@ -7,35 +7,36 @@
     <meta property="og:url" content="https://wasteparty.org" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Wasteparty" />
-    <meta property="og:description" content="Welcome to Wasteparty!" />
+	<meta property="og:description" content="Welcome to Wasteparty!" />
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
 	<title>Wasteparty</title>
+	
 	<style>
 		html {
-		font-size: 62.5%;
+			font-size: 62.5%;
 		}
 
 		body {
-		margin: 0;
-		font-size: 1.5em;
-		line-height: 1.6;
-		font-weight: 400;
-		font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial,
-			sans-serif;
-		color: #222;
+			margin: 0;
+			font-size: 1.5em;
+			line-height: 1.6;
+			font-weight: 400;
+			font-family: 'IBM Plex Sans', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+			color: #222;
 		}
 
 		*,
 		*:before,
 		*:after {
-		box-sizing: border-box;
+			box-sizing: border-box;
 		}
 		body {
-		font-size: 1.5em;
-		line-height: 1.6;
-		font-weight: 400;
-		font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial,
-			sans-serif;
-		color: #222;
+			font-size: 1.5em;
+			line-height: 1.6;
+			font-weight: 400;
+			font-family: 'IBM Plex Sans', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+			color: #222;
 		}
 
 		h1,
@@ -44,12 +45,11 @@
 		h4,
 		h5,
 		h6 {
-		margin: 0;
+			margin: 0;
 		}
-
 		button:focus,
 		input:focus {
-		outline: 0;
+			outline: 0;
 		}
 		button {
 			cursor: pointer;
@@ -62,18 +62,52 @@
 			margin: 0;
 			padding: 0;
 		}
-		.main-container {
+		.main-container:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: url("./background.jpg") #000;
+			background-position: center;
+			background-size: cover;
+		}
+		.main-container:before {
+			z-index: 1;
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgb(255,255,255);
+			background:linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(255,255,255,0.2) 20%);
+			background-position: center;
+			background-size: cover;
+		}
+		.inner-container {
+			z-index: 1;
+			position: relative;
 			width: 100%;
 			max-width: 1280px;
 			margin: 0 auto;
 			padding: 0 20px;
 		}
 		.menu {
-			padding-top: 10px;
+			padding: 40px 0;
 			display: flex;
 			flex-direction: row;
-			align-items: flex-start;
+			align-items: space-between;
 			justify-content: space-between;
+		}
+		@media (max-width: 789px) { 
+			.menu {
+				flex-direction: column;
+			}
+			.download-container {
+				margin-top: 15px;;
+			}
 		}
 		.menu ul {
 			list-style: none;
@@ -85,13 +119,45 @@
 		.menu ul li {
 			margin-right: 15px;
 		}
-		.menu ul li a{
+		.menu ul li a {
+			position:relative;
 			text-decoration: none;
-			color: #000;
+			color: #FFF;
+			font-size: 1.3em;
+			text-shadow: 1px 1px 3px rgba(0,0,0,0.07);
+		}
+		.menu ul li a:after {
+			content: "";
+			position: absolute;
+			bottom: -3px;
+			left: 0;
+			width: 100%;
+			height: 3px;
+			background: #FFF;
+		}
+		.download-container {
+			display: flex;
+			flex-direction: row;
+			align-items: flex-start;
+			justify-content: flex-start;
+		}
+		.download {
+			margin-right: 15px;
+		}
+		.download--deck {
+			margin-right: 0;
 		}
 		.download button {
-			border: 1px solid #FFF;
-			border-radius: 50px;
+			border: 1px solid #DDD;
+			border-radius: 5px;
+			color: #FFF;
+			padding: 10px 15px;
+			background-color: rgba(0, 0, 0, 0.2);
+			transition: all 0.3s;
+		}
+		.download button:hover {
+			background-color: rgba(0, 0, 0, 0.5);
+			color: #DDD;
 		}
 		.hero-section {
 			display: flex;
@@ -99,12 +165,52 @@
 			align-items: flex-start;
 			justify-content: flex-start;
 		}
+		@media (max-width: 1199px) { 
+			.hero-section {
+				flex-direction: column-reverse;
+				text-align: center;
+				align-items: center;
+			}
+		}
+		.hero-section h1 {
+			color: #FFF;
+			font-size: 3rem;
+		}
+		.hero-section p {
+			color: #FFF;
+		}
+		@media (max-width: 1199px) { 
+			.hero-section .illustration img {
+				height: 400px;
+			}
+		}
+		
+		.explainer {
+			background: #FFF;
+		}
 		.explainer ul {
 			display: flex;
 			flex-direction: row;
 			align-items: flex-start;
 			justify-content: flex-start;
 			list-style: none;
+		}
+		@media (max-width: 789px) { 
+			.explainer ul {
+				flex-direction: column;
+				text-align: center;
+			}
+			.explainer ul li {
+				width: 100% !important;
+			}
+			.explainer ul .icon img {
+				margin: 0 auto;
+			}
+		}
+
+		.explainer ul li {
+			padding: 30px 50px;
+			width: 33%;
 		}
 		.explainer ul h2 {
 			font-size: 20px;
@@ -114,6 +220,25 @@
 		.explainer ul p {
 			font-size: 0.5em;
 		}
+
+		.explainer ul .icon {
+			margin-bottom: 5px;
+		}
+
+		.explainer ul .icon img {
+			display: block;
+		}
+		.explainer ul .icon--open img {
+			width: 35px;
+		}
+
+		.explainer ul .icon--boost img {
+			width: 35px;
+		}
+
+		.explainer ul .icon--opportunity img {
+			width: 35px;
+		}
 		/* .understand {
 			font-size: 20px;
 		} */
@@ -122,73 +247,86 @@
   <body>
 	<noscript>You need to enable JavaScript to run this app.</noscript>
 	<div class="main-container">
-		<nav class="menu">
-			<ul>
-				<li>
-					<a href="https://market.wasteparty.org/">
-						MarketPlace
-					</a>
-					
-				</li>
-				<li>
-					<a href="https://party.wasteparty.org/home">
-						Organize a party
-					</a>
-				</li>
-			</ul>
-			<div class="download">
-				<button>
-					Download our PDF
-				</button>
-			</div>
-		</nav>
-		<section class="hero-section">
-			<div class="pitch">
-				<h1>Success starts with a great product</h1>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lobortis convallis dui, eget pharetra justo. Aliquam diam felis, efficitur eget ultricies et, eleifend in tortor. Nulla efficitur, mi vel lobortis sollicitudin, nisl ex luctus metus, quis fringilla tellus ligula sed lorem. Nunc facilisis velit nunc. Aenean quis lobortis elit. Fusce posuere ornare diam eget porta. Cras eget felis lacus.</p>
-			</div>
-			<div class="illustration">
-				<img src="./mac.png" alt="illustration">
-			</div>
-		</section>
-		<section class="explainer">
-			<ul>
-				<li class="point-1">
-					<div class="icon">
-						<img src="" alt="illustration">
+		<div class=inner-container>
+			<nav class="menu">
+				<ul>
+					<li>
+						<a href="https://market.wasteparty.org/">
+							MarketPlace
+						</a>
+						
+					</li>
+					<li>
+						<a href="https://party.wasteparty.org/home">
+							Organize a party
+						</a>
+					</li>
+				</ul>
+				<div class="download-container">
+					<div class="download">
+						<a href="https://wasteparty.org/framework-paper">
+							<button>
+								Download WastePoints Framework v0.1
+							</button>
+						</a>
 					</div>
-					<h2>
-						Understand every step of the way
-					</h2>
-					<div class="description">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lobortis convallis dui, eget pharetra justo. Aliquam diam felis, efficitur eget ultricies et, eleifend in tortor. Nulla efficitur, mi vel lobortis sollicitudin, nisl ex luctus metus, quis fringilla tellus ligula sed lorem. Nunc facilisis velit nunc. Aenean quis lobortis elit. Fusce posuere ornare diam eget porta. Cras eget felis lacus.
+					<div class="download download--deck">
+						<a href="https://wasteparty.org/deck">
+							<button>
+								Download our deck
+							</button>
+						</a>
 					</div>
-				</li>
-				<li class="point-2">
-					<div class="icon">
-						<img src="" alt="illustration">
-					</div>
-					<h2>
-						Build faster with instant answers
-					</h2>
-					<div class="description">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lobortis convallis dui, eget pharetra justo. Aliquam diam felis, efficitur eget ultricies et, eleifend in tortor. Nulla efficitur, mi vel lobortis sollicitudin, nisl ex luctus metus, quis fringilla tellus ligula sed lorem. Nunc facilisis velit nunc. Aenean quis lobortis elit. Fusce posuere ornare diam eget porta. Cras eget felis lacus.
-					</div>
-				</li>
-				<li class="point-3">
-					<div class="icon">
-						<img src="" alt="illustration">
-					</div>
-					<h2>
-						Unlock insights for everyone
-					</h2>
-					<div class="description">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lobortis convallis dui, eget pharetra justo. Aliquam diam felis, efficitur eget ultricies et, eleifend in tortor. Nulla efficitur, mi vel lobortis sollicitudin, nisl ex luctus metus, quis fringilla tellus ligula sed lorem. Nunc facilisis velit nunc. Aenean quis lobortis elit. Fusce posuere ornare diam eget porta. Cras eget felis lacus.
-					</div>
-				</li>
-			</ul>
-		</section>
+				</div>
+			</nav>
+			<section class="hero-section">
+				<div class="pitch">
+					<h1>REPORTING FRAMEWORK DRIVING SYSTEMIC CHANGE</h1>
+					<p>WastePoints (WP): an easy to understand grading system that combines trustworthy data sourced via existing frameworks (e.g. COBSEA) and new innovations around social, environmental and impact elements together with incentives to directly increase the livelihoods of the waste pickers and makes systemic change a priority.</p>
+				</div>
+				<div class="illustration">
+					<img src="./mac.png" alt="illustration">
+				</div>
+			</section>
+			<section class="explainer">
+				<ul>
+					<li class="point-1">
+						<div class="icon icon--open">
+							<img src="./open.png" alt="illustration">
+						</div>
+						<h2>
+							OPEN PROTOCOL
+						</h2>
+						<div class="description">
+							Better collection, de-risked purchases, improved livelihoods, less future mismanagement.
+	Key metric: Avg WP/party per region
+						</div>
+					</li>
+					<li class="point-2">
+						<div class="icon icon--boost">
+							<img src="./boost.png" alt="illustration">
+						</div>
+						<h2>
+							BOOSTERS
+						</h2>
+						<div class="description">
+							Build-in investments that give back to communities, driving systemic change.
+						</div>
+					</li>
+					<li class="point-3">
+						<div class="icon icon--opportunity">
+							<img src="./opportunity.png" alt="illustration">
+						</div>
+						<h2>
+							OPPORTUNITY: 8 million tonnes
+						</h2>
+						<div class="description">
+							Of mismanaged plastic in the coastal areas of Thailand, Vietnam, Philippines and Indonesia alone. Coastal population: 350M
+						</div>
+					</li>
+				</ul>
+			</section>
+		</div>
 	</div>
-	
   </body>
 </html>

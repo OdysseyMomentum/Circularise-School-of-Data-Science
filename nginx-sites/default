@@ -14,8 +14,12 @@ server {
         try_files $uri $uri/ =404;
     }
 
-    location /framework-paper/ {
-        return 301 https://$host/framework-paper.pdf;
+    location /framework-paper {
+        return 301 https://$host/assets/framework-paper.pdf;
+    }
+
+    location /deck {
+        return 301 https://$host/assets/deck.pdf;
     }
 
     listen [::]:443 ssl ipv6only=on; # managed by Certbot
