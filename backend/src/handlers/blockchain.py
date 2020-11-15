@@ -11,6 +11,15 @@ from utils.smart_contract import contract_instance
 
 WP_PUBLIC_KEY = os.environ["WP_PUBLIC_KEY"]
 
+waste_party_logo = "https://wasteparty.org/logo.png"
+waste_party_env_endpoints = [
+    {"url": "http://127.0.0.1:8000/tokens", "description": "Development server"},
+    {
+        "url": "https://api.wasteparty.org/tokens",
+        "description": "Production server",
+    },
+]
+
 blockchain = FastAPI()
 
 
@@ -124,19 +133,8 @@ def custom_openapi():
         description="The Wasteparty API for Odyssey Momentum",
         routes=blockchain.routes,
     )
-    openapi_schema["info"]["x-logo"] = {
-        "url": "https://wasteparty.org/logo.png"
-    }
-    openapi_schema["servers"] = [
-        {
-            "url": "http://127.0.0.1:8000/tokens",
-            "description": "Development server"
-        },
-        {
-            "url": "https://api.wasteparty.org/tokens",
-            "description": "Production server"
-        }
-    ]
+    openapi_schema["info"]["x-logo"] = {"url": waste_party_logo}
+    openapi_schema["servers"] = waste_party_env_endpoints
     blockchain.openapi_schema = openapi_schema
     return blockchain.openapi_schema
 
