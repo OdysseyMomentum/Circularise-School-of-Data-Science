@@ -12,19 +12,17 @@ export default class SidePanel extends React.Component {
     totalScore: 0,
   };
   updateTotalKg = (updateKg) => {
-    console.log(updateKg);
     this.setState({ totalKg: this.state.totalKg + updateKg });
   };
-  updateTotalPrice = (totalPrice) => {
-    this.setState({ totalPrice });
+  updateTotalPrice = (updatePrice) => {
+    this.setState({ totalPrice: this.state.totalPrice + updatePrice });
   };
-  updateTotalScore = (totalScore) => {
-    this.setState({ totalScore });
+  updateTotalScore = (updateScore) => {
+    this.setState({ totalScore: this.state.totalScore + updateScore });
   };
   render() {
     return (
       <div className="side-panel">
-        <h1>Our batch locations</h1>
         <Filters />
         <ListOfBatch
           updateTotalKg={this.updateTotalKg}

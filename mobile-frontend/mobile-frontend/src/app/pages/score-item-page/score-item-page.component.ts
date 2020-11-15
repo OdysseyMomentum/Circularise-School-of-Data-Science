@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HeaderService } from "../../header/header.service";
 
 @Component({
   selector: 'app-score-item-page',
@@ -13,7 +14,7 @@ export class ScoreItemPageComponent implements OnInit {
 		"name": "Confirmation during gathering",
 		"points": 3
 	}];
-	
+
 	public current_items_total = this.current_items
 		.map(a => a.points)
 		.reduce((a, b) => a + b, 0);
@@ -25,9 +26,6 @@ export class ScoreItemPageComponent implements OnInit {
 		"name": "Photo capturing after gathering",
 		"points": 0.5,
 	},{
-		"name": "Check by NGO",
-		"points": 3
-	},{
 		"name": "Automatic calls",
 		"points": 1
 	},{
@@ -38,9 +36,19 @@ export class ScoreItemPageComponent implements OnInit {
 		.map(a => a.points)
 		.reduce((a, b) => a + b, 0);
 
-  constructor() { }
+	public additional_passive_items = [{
+		"name": "Check by NGO",
+		"points": 3
+	}];
+	public additional_passive_items_total = this.additional_passive_items
+		.map(a => a.points)
+		.reduce((a, b) => a + b, 0);
+
+  constructor(
+  	private headerService: HeaderService) { }
 
   ngOnInit(): void {
+    this.headerService.setHeaderBack("/scores");
   }
 
 }

@@ -25,3 +25,9 @@ mat-card:hover{
 	/*display: inline-block;*/
 	float:right;
 }
+.active {
+	background-color:#ada;
+}
+.inactive {
+	background-color:#daa;
+}

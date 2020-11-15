@@ -14,6 +14,8 @@
         "city": "Washington DC",
         "weight": 1337,
         "price": 1300,
+        "score": 2600,
+        "scoreMax": 5000,
         "SDG": [1, 4, 5]
       }
     },
@@ -30,6 +32,8 @@
         "city": "Washington DC",
         "weight": 400,
         "price": 300,
+        "score": 600,
+        "scoreMax": 900,
         "SDG": [1]
       }
     },
@@ -46,6 +50,8 @@
         "city": "Washington DC",
         "weight": 600,
         "price": 600,
+        "score": 1200,
+        "scoreMax": 1800,
         "SDG": [1, 5, 9]
       }
     },
@@ -62,6 +68,8 @@
         "city": "Washington DC",
         "weight": 40,
         "price": 20,
+        "score": 50,
+        "scoreMax": 100,
         "SDG": [8]
       }
     },
@@ -78,6 +86,8 @@
         "city": "Washington DC",
         "weight": 140,
         "price": 30,
+        "score": 50,
+        "scoreMax": 200,
         "SDG": [4]
       }
     },
@@ -95,6 +105,8 @@
         "city": "Bethesda",
         "weight": 1300,
         "price": 600,
+        "score": 2500,
+        "scoreMax": 3000,
         "SDG": [1, 5, 6]
       }
     },
@@ -111,6 +123,8 @@
         "city": "Reston",
         "weight": 4000,
         "price": 6300,
+        "score": 3500,
+        "scoreMax": 5000,
         "SDG": [2, 4, 5, 6, 7]
       }
     },
@@ -127,6 +141,8 @@
         "city": "Arlington",
         "weight": 400,
         "price": 500,
+        "score": 1200,
+        "scoreMax": 3200,
         "SDG": [1, 5, 7, 8]
       }
     },
@@ -143,6 +159,8 @@
         "city": "Ardmore",
         "weight": 10,
         "price": 10,
+        "score": 40,
+        "scoreMax": 50,
         "SDG": [1]
       }
     },
@@ -159,6 +177,8 @@
         "city": "Philadelphia",
         "weight": 900,
         "price": 300,
+        "score": 800,
+        "scoreMax": 1000,
         "SDG": [4, 5, 9]
       }
     },
@@ -175,7 +195,9 @@
         "city": "Washington DC",
         "weight": 4,
         "price": 300,
-        "SDG": []
+        "score": 600,
+        "scoreMax": 1000,
+        "SDG": [6]
       }
     },
     {
@@ -191,6 +213,8 @@
         "city": "College Park",
         "weight": 90,
         "price": 20,
+        "score": 50,
+        "scoreMax": 200,
         "SDG": [5, 6]
       }
     }

@@ -1,4 +1,6 @@
 .listings {
-  height: 400px;
+  height: 60%;
   overflow: scroll;
+  overflow-x: hidden;
+  border: 1px solid #000;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HeaderService } from "../../header/header.service";
 
 @Component({
   selector: 'app-score-page',
