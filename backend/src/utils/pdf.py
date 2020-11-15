@@ -3,6 +3,7 @@ import pdfkit
 import io
 import qrcode
 
+from typing import Optional
 from pydantic import BaseModel
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
@@ -23,7 +24,7 @@ class PdfInput(BaseModel):
     impact: int
     booster: int
     waste_points: int
-    txn_hash: str = None
+    txn_hash: Optional[str] = None
 
 
 def generate_pdf_certificate(input: PdfInput):
