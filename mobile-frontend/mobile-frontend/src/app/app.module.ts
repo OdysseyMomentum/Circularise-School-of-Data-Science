@@ -26,6 +26,8 @@ import { ScoresPageComponent } from './pages/scores-page/scores-page.component';
 import { ScoreSubItemPageComponent } from './pages/score-sub-item-page/score-sub-item-page.component';
 import { CreateEventComponent } from './pages/create-event/create-event.component';
 import { ActiveEventComponent } from './pages/active-event/active-event.component';
+import { EventSummaryPageComponent } from './pages/event-summary-page/event-summary-page.component';
+import { PastEventsPageComponent } from './pages/past-events-page/past-events-page.component';
 // import {MatGridListModule} from '@angular/material/grid-list';
 
 
@@ -42,7 +44,9 @@ import { ActiveEventComponent } from './pages/active-event/active-event.componen
     ScoresPageComponent,
     ScoreSubItemPageComponent,
     CreateEventComponent,
-    ActiveEventComponent
+    ActiveEventComponent,
+    EventSummaryPageComponent,
+    PastEventsPageComponent
   ],
   imports: [
     MatInputModule,

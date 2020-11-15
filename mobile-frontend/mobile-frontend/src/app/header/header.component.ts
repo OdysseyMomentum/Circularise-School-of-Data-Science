@@ -11,11 +11,11 @@ import { HeaderService } from "../header/header.service";
 })
 export class HeaderComponent implements OnInit {
 
-  // private headerBackListener: Subscription<string>;
+  private headerBackListener: any; //Subscription<string>;
   public back: string = "/";
 
   constructor(
-  	private headerBackListener: Subscription,
+  	// private headerBackListener: Subscription,
     private headerService: HeaderService) { }
 
   ngOnInit(): void {
