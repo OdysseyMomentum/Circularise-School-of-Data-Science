@@ -18,6 +18,10 @@ server {
         return 301 https://$host/framework-paper.pdf;
     }
 
+    location /deck/ {
+        return 301 https://$host/deck.pdf;
+    }
+
     listen [::]:443 ssl ipv6only=on; # managed by Certbot
     listen 443 ssl; # managed by Certbot
     ssl_certificate /etc/letsencrypt/live/wasteparty.org/fullchain.pem; # managed by Certbot
