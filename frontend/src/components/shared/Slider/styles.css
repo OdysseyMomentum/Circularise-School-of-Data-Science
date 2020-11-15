@@ -7,14 +7,23 @@
 }
 
 .slider-container .rangeslider {
-  width: 80%;
+  width: 35%;
 }
+
 .slider-container .value {
-  width: 20%;
-  margin-right: 35px;
-  text-align: right;
-  font-size: 2rem;
   color: #666;
+}
+
+.slider-container .value--left {
+  text-align: right;
+  margin-right: 5px;
+  width: 40%;
+}
+
+.slider-container .value--right {
+  text-align: left;
+  margin-left: 5px;
+  width: 25%;
 }
 
 .rangeslider-horizontal .rangeslider__fill {

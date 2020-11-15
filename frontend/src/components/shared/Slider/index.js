@@ -17,10 +17,11 @@ export default class Slider extends React.Component {
 
   handleChange = (value) => {
     this.setState({ value });
+    this.props.updatePrice(value);
   };
 
   handleChangeComplete = () => {
-    // this.props.updateInputs(this.props.sliderType, this.state.value);
+    // this.props.updatePrice(this.props.sliderType, this.state.value);
   };
 
   render() {
@@ -31,7 +32,9 @@ export default class Slider extends React.Component {
     const { value } = this.state;
     return (
       <div className="slider-container">
-        <div className="value">{value}</div>
+        <div className="value value--left">
+          WP Score: {this.props.minValue} (base)
+        </div>
         <RangeSlider
           min={this.props.minValue || DEFAULT.MIN}
           max={this.props.maxValue || DEFAULT.MAX}
@@ -39,7 +42,7 @@ export default class Slider extends React.Component {
           onChange={this.handleChange}
           onChangeComplete={this.handleChangeComplete}
         />
-        <div className="value">{this.props.maxValue}</div>
+        <div className="value value--right">{value} (boosted)</div>
       </div>
     );
   }
