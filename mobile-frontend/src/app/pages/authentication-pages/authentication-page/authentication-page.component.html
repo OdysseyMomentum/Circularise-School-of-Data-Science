@@ -4,13 +4,20 @@
   <div class="col-1 col-md-3 col-sm-1"></div>
 	<div class="col-10 col-md-6 col-sm-10">
 		<div class="spacer-top"></div>
+		<div class="mobile-preview-frame">
+			<img class="mobile-preview" src="/assets/images/mobile_view.png" alt="">
+			<br/>
+			<br/>
+			View on mobile for the true experience.
+		</div>
+		<div class="spacer-top"></div>
 		<button mat-raised-button [routerLink]="['/login']">Login</button>
 		<br/>
 		<br/>
 		<button mat-raised-button [routerLink]="['/signup']">Sign up</button>
 		<br/>
 		<br/>
-		<button mat-button [matMenuTriggerFor]="menu">English</button>
+		<button class="select-menu" mat-button [matMenuTriggerFor]="menu">English</button>
 		<mat-menu #menu="matMenu">
 			<button mat-menu-item>English</button>
 			<button mat-menu-item>French</button>
@@ -20,4 +27,5 @@
 	</div>
   <div class="col-1 col-md-3 col-sm-1"></div>
 </div>
+
 
