@@ -57,7 +57,7 @@ def get_token_by_id(request: Request, id: int = 0):
 
 @blockchain.post("/mint")
 def mint_token(request: Request, data: WasteToken):
-    minted, txn_hash = contract_instance.mint_waste_token(data.creator, False, data.waste_points, data.social, data.environment, data.impact, data.booster)
+    minted, txn_hash = _mint_token(data, False)
     if not minted:
         return JSONResponse({"success": False}, status_code=409)
 
@@ -66,15 +66,7 @@ def mint_token(request: Request, data: WasteToken):
 
 @blockchain.post("/mint/certified")
 def mint_certified_token(request: Request, data: WasteToken):
-    minted, txn_hash = contract_instance.mint_waste_token(
-        data.creator,
-        True,
-        data.waste_points,
-        data.social,
-        data.environment,
-        data.impact,
-        data.booster,
-    )
+    minted, txn_hash = _mint_token(data, True)
 
     if not minted:
         return JSONResponse({"success": False}, status_code=409)
@@ -89,6 +81,10 @@ def mint_certified_token(request: Request, data: WasteToken):
     cert = generate_pdf_certificate(data, returned_hash)
 
     return Response(content=cert, media_type="application/pdf")
+
+
+def _mint_token(data: WasteToken, is_mint_token: bool):
+    return contract_instance.mint_waste_token(data.creator, is_mint_token, data.waste_points, data.social, data.environment, data.impact, data.booster)
 
 
 @blockchain.post("/burn")
