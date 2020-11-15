@@ -8,6 +8,8 @@ import { SignupPageComponent } from './pages/authentication-pages/signup-page/si
 import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -63,6 +65,7 @@ import { SellPageComponent } from './pages/sell-page/sell-page.component';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
     MatCardModule,
     MatExpansionModule,
     // MatGridListModule
