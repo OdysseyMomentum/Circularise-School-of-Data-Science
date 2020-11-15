@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderService } from "../../header/header.service";
+import { EventsService } from "../../api/events.service";
 
 @Component({
   selector: 'app-create-event',
@@ -8,31 +9,14 @@ import { HeaderService } from "../../header/header.service";
 })
 export class CreateEventComponent implements OnInit {
 
-	public people = [{
-		name: "Alice",
-		image: "/assets/images/placeholder_people/person2.jpg",
-	},{
-		name: "Bob",
-		image: "/assets/images/placeholder_people/person11.jpg",
-	},{
-		name: "Charlie",
-		image: "/assets/images/placeholder_people/person12.jpg",
-	},{
-		name: "Dave",
-		image: "/assets/images/placeholder_people/person9.jpg",
-	},{
-		name: "Eve",
-		image: "/assets/images/placeholder_people/person5.jpg",
-	},{
-		name: "Frank",
-		image: "/assets/images/placeholder_people/person6.jpg",
-	}];
+	public people: any[] = [];
 
   constructor(
-  	private headerService: HeaderService) { }
+  	private headerService: HeaderService,
+  	private eventsService: EventsService) { }
 
   ngOnInit(): void {
     this.headerService.setHeaderBack("/home");
+		this.people = this.eventsService.people;
   }
-
 }
