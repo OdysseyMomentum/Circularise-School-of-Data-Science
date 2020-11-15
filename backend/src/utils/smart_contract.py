@@ -11,13 +11,12 @@ class CollectableContract:
         self.priv = '8f7f80cc49a1c4201b170aeca0dfbae28bf87397307a5aca306d0be63a465a55'
 
         self.account = self.w3.eth.account.privateKeyToAccount(self.priv)
-        self.w3.eth.defaultAccount = self.account
         self.nonce = self.w3.eth.getTransactionCount(self.account.address)
-
 
         contract_address = self.w3.toChecksumAddress(contract_address)
         contract_abi = json.loads(open('./ethereum/ERC1155Collectable.json').read())
         
+        self.w3.eth.defaultAccount = self.account
         self.contract = self.w3.eth.contract(address=contract_address, abi=contract_abi['abi'])
 
     def get_token_balances(self, owner: str):
@@ -48,9 +47,7 @@ class CollectableContract:
             })
 
             signed_txn = self.w3.eth.account.sign_transaction(txn, private_key=self.priv)
-
             txn_hash = self.w3.eth.sendRawTransaction(signed_txn.rawTransaction)
-            # txn_receipt = self.w3.eth.waitForTransactionReceipt(txn_hash)
             
             self.nonce += 1
             

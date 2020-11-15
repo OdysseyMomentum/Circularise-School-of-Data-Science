@@ -3,10 +3,10 @@ import pdfkit
 import io
 import qrcode
 
-from typing import Optional
 from pydantic import BaseModel
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
+from models.requests import WasteToken
 
 env = Environment(
     loader=FileSystemLoader("templates"),
@@ -16,17 +16,7 @@ certificate_template = env.get_template("certificate.html")
 
 explorer = "https://goerli.etherscan.io/tx/"
 
-
-class PdfInput(BaseModel):
-    creator: str
-    social: int
-    environment: int
-    impact: int
-    booster: int
-    waste_points: int
-
-
-def generate_pdf_certificate(input: PdfInput, txn_hash: str):
+def generate_pdf_certificate(token: WasteToken, txn_hash: str):
     img = qrcode.make(f"{explorer}{txn_hash}")
 
     buffer = io.BytesIO()
@@ -35,12 +25,12 @@ def generate_pdf_certificate(input: PdfInput, txn_hash: str):
     img_data_uri = base64.b64encode(buffer.read()).decode("ascii")
 
     html = certificate_template.render(
-        creator=input.creator,
-        social=input.social,
-        environment=input.environment,
-        impact=input.impact,
-        booster=input.booster,
-        waste_points=input.waste_points,
+        creator=token.creator,
+        social=token.social,
+        environment=token.environment,
+        impact=token.impact,
+        booster=token.booster,
+        waste_points=token.waste_points,
         txn_hash=txn_hash,
         img_data_uri=img_data_uri,
     )
