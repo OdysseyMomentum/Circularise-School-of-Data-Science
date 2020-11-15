@@ -1,6 +1,7 @@
 import React from "react";
 import "./styles.css";
 import CTA from "../../../shared/CTA";
+import Slider from "../../../shared/Slider";
 
 export default class Batch extends React.Component {
   state = {
@@ -33,11 +34,13 @@ export default class Batch extends React.Component {
   render() {
     return (
       <li className={`item ${this.state.isSelected ? "item--selected" : ""}`}>
+        <div className="title" onClick={() => this.selectPreview()}>
+          {this.props.feature.properties.name}
+        </div>
         <div className="item__inner">
           <div className="item__left">
-            <div className="title">{this.props.feature.properties.name}</div>
             <div className="weight">
-              {this.props.feature.properties.weight}kg
+              Weight: {this.props.feature.properties.weight}kg
             </div>
             <div className="sdg-container">
               <span>TOP3 SDG: </span>
@@ -49,24 +52,23 @@ export default class Batch extends React.Component {
             </div>
           </div>
           <div className="item__right">
-            <div className="boosted">
-              Boosted Score max: {this.props.feature.properties.scoreMax}
-            </div>
-            <div className="score">
-              WP Score: {this.props.feature.properties.score}(base) |{" "}
-              {this.props.feature.properties.scoreMax}(boosted)
-            </div>
             <div className="price">
               Total price: ${this.props.feature.properties.price}
             </div>
           </div>
         </div>
-        <div className="cta-container">
-          <CTA
-            buttonColor="blue"
-            text={"See on map"}
-            onClick={() => this.selectPreview()}
+        <div className="score-container">
+          <div className="score">
+            Current WP Score: {this.props.feature.properties.score}
+          </div>
+          <p>Add Boost: </p>
+          <Slider
+            defaultValue={this.props.feature.properties.score}
+            minValue={this.props.feature.properties.score}
+            maxValue={this.props.feature.properties.scoreMax}
           />
+        </div>
+        <div className="cta-container">
           <CTA
             text={`${this.state.isSelected ? "Remove from" : "Add to"} cart`}
             onClick={() => this.selectAdd()}
