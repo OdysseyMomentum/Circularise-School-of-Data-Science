@@ -32,59 +32,6 @@
   justify-content: space-between;
 }
 
-.sdg-container {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
-}
-
-.sdg {
-  margin-left: 3px;
-  padding: 0px 5px;
-  border-radius: 5px;
-}
-
-.sdg[data-value="1"] {
-  background-color: #dc6969;
-}
-
-.sdg[data-value="2"] {
-  background-color: #7878ff;
-}
-
-.sdg[data-value="3"] {
-  background-color: yellow;
-}
-
-.sdg[data-value="4"] {
-  background-color: #fb65fb;
-}
-
-.sdg[data-value="5"] {
-  background-color: plum;
-}
-
-.sdg[data-value="6"] {
-  background-color: paleturquoise;
-}
-
-.sdg[data-value="7"] {
-  background-color: blanchedalmond;
-}
-
-.sdg[data-value="8"] {
-  background-color: beige;
-}
-
-.sdg[data-value="9"] {
-  background-color: #c2f9a9;
-}
-
-.sdg[data-value="10"] {
-  background-color: greenyellow;
-}
-
 .slider-container {
   display: flex;
   flex-direction: column;

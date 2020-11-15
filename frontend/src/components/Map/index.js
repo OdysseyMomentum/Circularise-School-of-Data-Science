@@ -30,16 +30,20 @@ export default class Map extends React.Component {
     var popUps = document.getElementsByClassName("mapboxgl-popup");
     if (popUps[0]) popUps[0].remove();
 
+    const SDG = currentFeature.properties.SDG.map((val, i) => {
+      return `<div class="sdg" data-value=${val}>
+        ${val}
+      </div>`;
+    });
     new mapboxgl.Popup({ closeOnClick: false })
       .setLngLat(currentFeature.geometry.coordinates)
       .setHTML(
-        `<h3>Additional infos</h3>
-        <h4>
-          ${currentFeature.properties.address}
-        </h4>
-        <h4>
-          ${currentFeature.properties.weight}kg
-        </h4>`
+        `<h3>${currentFeature.properties.name}</h3>
+        <h4><b>Weight</b>: ${currentFeature.properties.weight}kg</h4>
+        <h4><b>Top SDG</b>:</h4>
+        <div class='sdg-container'>
+          ${SDG.join("")}
+        </div>`
       )
       .addTo(this.state.map);
   };
@@ -67,7 +71,7 @@ export default class Map extends React.Component {
     fetch(`${mockData}`)
       .then((response) => response.json())
       .then((data) => {
-        // Feed the parent container
+        // Feed the parent component with data
         that.props.setData(data.features);
 
         // Render the map
