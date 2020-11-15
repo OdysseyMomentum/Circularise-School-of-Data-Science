@@ -40,7 +40,7 @@ export default class Batch extends React.Component {
     this.setState({ isSelected: !this.state.isSelected });
     if (!this.state.isSelected) {
       this.setState({ isButtonDisabled: true });
-      setTimeout(() => this.setState({ isButtonDisabled: false }), 2000);
+      setTimeout(() => this.setState({ isButtonDisabled: false }), 1500);
     }
   };
 
@@ -51,7 +51,7 @@ export default class Batch extends React.Component {
       startVelocity: 40,
       elementCount: 70,
       dragFriction: 0.12,
-      duration: 1000,
+      duration: 500,
       stagger: 3,
       width: "10px",
       height: "10px",

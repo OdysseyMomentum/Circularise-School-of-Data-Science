@@ -110,7 +110,7 @@
 }
 
 .cta-container {
-  width: 200px;
+  margin: 5px 0;
 }
 
 .cta-container .cta {
@@ -125,7 +125,7 @@
 }
 
 .item--selected {
-  background: rgba(222, 222, 222, 0.4);
+  background: rgba(208, 255, 209, 0.4);
 }
 
 .item--selected .cta-container .cta {
