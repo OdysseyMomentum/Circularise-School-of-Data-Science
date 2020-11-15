@@ -29,3 +29,7 @@
 .rangeslider-horizontal .rangeslider__fill {
   background: #ffa500;
 }
+
+.rangeslider__handle:focus {
+  outline: none;
+}

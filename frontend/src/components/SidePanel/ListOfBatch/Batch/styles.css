@@ -24,9 +24,9 @@
   cursor: pointer;
 }
 
-.item--selected {
+/* .item--selected {
   background: linear-gradient(-45deg, #00853e, #23d5ab);
-}
+} */
 
 .item__inner {
   margin-top: 8px;
@@ -96,11 +96,8 @@
   justify-content: flex-start;
 }
 
-.cta-container {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
+.add-cart {
+  background: orange;
 }
 
 .score-container {

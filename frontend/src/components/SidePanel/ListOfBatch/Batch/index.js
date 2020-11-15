@@ -2,6 +2,7 @@ import React from "react";
 import "./styles.css";
 import CTA from "../../../shared/CTA";
 import Slider from "../../../shared/Slider";
+import Confetti from "react-dom-confetti";
 
 export default class Batch extends React.Component {
   state = {
@@ -38,6 +39,19 @@ export default class Batch extends React.Component {
   };
 
   render() {
+    const config = {
+      angle: "207",
+      spread: 360,
+      startVelocity: "19",
+      elementCount: "180",
+      dragFriction: "0.07",
+      duration: "7590",
+      stagger: "11",
+      width: "19px",
+      height: "23px",
+      perspective: "500px",
+      colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"],
+    };
     return (
       <li className={`item ${this.state.isSelected ? "item--selected" : ""}`}>
         <div className="title" onClick={() => this.selectPreview()}>
@@ -54,10 +68,13 @@ export default class Batch extends React.Component {
         />
         <div className="price">Total price: ${this.state.price}</div>
         <div className="cta-container">
-          <CTA
-            text={`${this.state.isSelected ? "Remove from" : "Add to"} cart`}
-            onClick={() => this.selectAdd()}
-          />
+          <button className="cta" onClick={() => this.selectAdd()}>
+            {this.state.isSelected ? "Remove from" : "Add to"} cart
+            <Confetti
+              active={this.state.isSelected}
+              config={this.props.confettiConfig}
+            />
+          </button>
         </div>
       </li>
     );
