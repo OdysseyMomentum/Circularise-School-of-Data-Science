@@ -2,16 +2,12 @@
   position: relative;
   border-bottom: 1px solid #000;
   padding: 10px;
-  text-decoration: none;
+  background: none;
   transition: all 0.3s;
 }
 
 .item:hover {
   cursor: pointer;
-}
-
-.item p {
-  margin: 0;
 }
 
 .item:last-child {

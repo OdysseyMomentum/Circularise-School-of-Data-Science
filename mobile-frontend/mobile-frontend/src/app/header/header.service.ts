@@ -9,8 +9,8 @@ export class HeaderService {
   // private headerState: boolean = true;
   // private headerStateListener = new Subject<boolean>();
 
-  private headerBack: boolean = true;
-  private headerBackListener = new Subject<boolean>();
+  private headerBack: string = "/";
+  private headerBackListener: Subject<string> = new Subject<string>();
  
   constructor() { }
 

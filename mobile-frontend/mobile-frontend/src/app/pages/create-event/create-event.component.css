@@ -6,6 +6,19 @@ h1{
 h2{
 	text-align: center;
 }
+mat-form-field{
+	width:100%;
+}
+mat-card{
+	height:50px;
+	margin-bottom: 2px;
+}
+mat-card:hover{
+	background-color:#add;
+	cursor: pointer;
+}
+
+
 .pickers-list{
 	display: block;
 }
@@ -14,18 +27,8 @@ h2{
   width:80px;
   margin:10px;
 }
-.button{
-	width:100%;
-}
-.active-event-button{
-	height:100px;
-	background-color:#90EE90;
-}
 .avatars {
   margin: 0 auto;
-  /*display: flex;*/
-/*  justify-content: center;
-  align-items: center;*/
 }
 .avatar-holder{
 	/*display:block;*/
@@ -37,4 +40,12 @@ h2{
 	text-align: center;
 	font-weight: bold;
 	width:100%;
+}
+
+.button{
+	width:100%;
+}
+.create-event-button{
+	height:100px;
+	background-color:#90EE90;
 }

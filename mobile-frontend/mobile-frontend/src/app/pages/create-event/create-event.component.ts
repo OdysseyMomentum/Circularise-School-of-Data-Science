@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { HeaderService } from "../../header/header.service";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-create-event',
+  templateUrl: './create-event.component.html',
+  styleUrls: ['./create-event.component.css']
 })
-export class HomeComponent implements OnInit {
+export class CreateEventComponent implements OnInit {
 
 	public people = [{
 		name: "Alice",
@@ -28,9 +28,11 @@ export class HomeComponent implements OnInit {
 		image: "/assets/images/placeholder_people/person6.jpg",
 	}];
 
-  constructor() { }
+  constructor(
+  	private headerService: HeaderService) { }
 
   ngOnInit(): void {
+    this.headerService.setHeaderBack("/home");
   }
 
 }
