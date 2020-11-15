@@ -1,6 +1,5 @@
 import React from "react";
 import "./styles.css";
-import CTA from "../../../shared/CTA";
 import Slider from "../../../shared/Slider";
 import Confetti from "react-dom-confetti";
 
@@ -52,19 +51,6 @@ export default class Batch extends React.Component {
   };
 
   render() {
-    const config = {
-      angle: "101",
-      spread: "23",
-      startVelocity: 40,
-      elementCount: 70,
-      dragFriction: 0.12,
-      duration: 500,
-      stagger: 3,
-      width: "10px",
-      height: "10px",
-      perspective: "500px",
-      colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"],
-    };
     return (
       <li className={`item ${this.state.isSelected ? "item--selected" : ""}`}>
         <div className="title" onClick={() => this.selectPreview()}>
@@ -105,10 +91,7 @@ export default class Batch extends React.Component {
             onClick={() => this.selectAdd()}
           >
             {this.state.isSelected ? "Remove from" : "Add to"} cart
-            <Confetti
-              active={this.state.isSelected}
-              config={this.props.confettiConfig}
-            />
+            <Confetti active={this.state.isSelected} />
           </button>
         </div>
       </li>
