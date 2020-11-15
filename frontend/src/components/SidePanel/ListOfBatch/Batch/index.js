@@ -1,7 +1,8 @@
 import React from "react";
 import "./styles.css";
 import Slider from "../../../shared/Slider";
-import Confetti from "react-dom-confetti";
+import Recap from "./recap";
+import CTAConfetti from "./cta-confetti";
 
 export default class Batch extends React.Component {
   state = {
@@ -68,32 +69,16 @@ export default class Batch extends React.Component {
             maxValue={this.props.feature.properties.scoreMax}
           />
         </div>
-        {!this.state.isSelected && (
-          <div className="recap">
-            <span>Total price: ${this.state.finalBoostedPrice}</span>
-            <span>Total WP Score: {this.state.finalBoostedScore}</span>
-          </div>
-        )}
-        {this.state.isSelected && (
-          <div className="recap">
-            <span>
-              Total price: <b>${this.state.finalBoostedPrice}</b>
-            </span>
-            <span>
-              Total WP Score: <b>{this.state.finalBoostedScore}</b>
-            </span>
-          </div>
-        )}
-        <div className="cta-container">
-          <button
-            disabled={this.state.isButtonDisabled}
-            className="cta"
-            onClick={() => this.selectAdd()}
-          >
-            {this.state.isSelected ? "Remove from" : "Add to"} cart
-            <Confetti active={this.state.isSelected} />
-          </button>
-        </div>
+        <Recap
+          isSelected={this.state.isSelected}
+          finalBoostedPrice={this.state.finalBoostedPrice}
+          finalBoostedScore={this.state.finalBoostedScore}
+        />
+        <CTAConfetti
+          isButtonDisabled={this.state.isButtonDisabled}
+          isSelected={this.state.isSelected}
+          selectAdd={this.selectAdd}
+        />
       </li>
     );
   }
