@@ -42,7 +42,7 @@ export class SellPageComponent implements OnInit {
   }
 
   public send(){
-  	console.log("a")
+  	// console.log("a")
   	this.apiService.mint("0x4E799D483A36e954E641938f6b52B44aB107f1bf", 12, 14, 19, 1, 9001)
   		.subscribe(response => {
             console.log("done");
