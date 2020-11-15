@@ -29,6 +29,7 @@ import { CreateEventComponent } from './pages/create-event/create-event.componen
 import { ActiveEventComponent } from './pages/active-event/active-event.component';
 import { EventSummaryPageComponent } from './pages/event-summary-page/event-summary-page.component';
 import { PastEventsPageComponent } from './pages/past-events-page/past-events-page.component';
+import { SellPageComponent } from './pages/sell-page/sell-page.component';
 // import {MatGridListModule} from '@angular/material/grid-list';
 
 
@@ -47,7 +48,8 @@ import { PastEventsPageComponent } from './pages/past-events-page/past-events-pa
     CreateEventComponent,
     ActiveEventComponent,
     EventSummaryPageComponent,
-    PastEventsPageComponent
+    PastEventsPageComponent,
+    SellPageComponent
   ],
   imports: [
     MatInputModule,

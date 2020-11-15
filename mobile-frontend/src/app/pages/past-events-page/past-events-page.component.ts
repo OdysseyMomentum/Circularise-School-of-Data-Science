@@ -10,11 +10,8 @@ export class PastEventsPageComponent implements OnInit {
 	public date = new Date();
 	public events: any[] = [];
 
-
-
   constructor(
   	private headerService: HeaderService) { }
-
 
   ngOnInit(): void {
     this.headerService.setHeaderBack("/home");

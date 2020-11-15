@@ -1,5 +1,11 @@
 <h1> {{event.name}} </h1>
-<hr/>
+<div class="info">
+{{event.location}}
+</div>
+<div class="info">
+{{event.date}}
+</div>
+<!-- <hr/>
 <h2> Details </h2>
 <div class="row main-div" >
 	<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
@@ -14,7 +20,7 @@
 		</mat-form-field>
 	</div>
 	<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
-</div>
+</div> -->
 <hr/>
 <h2> Participants </h2>
 <div class=" pickers-list">
@@ -23,10 +29,14 @@
 		<div class="col-10 col-lg-4 col-md-6 col-sm-10">
 			<div class="avatars">
 			<div *ngFor="let people of people" class="avatar-holder">
-				<img [src]="people.image" class="avatar">
+				<div class="container">
+					<div class="tag">--</div>
+					<img [src]="people.image" class="avatar">
+				</div>
 				<br/>
 				<label class="avatar-name">{{people.name}}</label>
 			</div>
+			<div class="add avatar-holder">+</div>
 		</div>
 		<!-- <span class="avatar"> + </span> -->
 		<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
@@ -75,7 +85,7 @@
 	<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
 	<div class="col-10 col-lg-4 col-md-6 col-sm-10">
 		<br/>
-		<button mat-raised-button class="button end-event-button" [routerLink]="['/home']">End event</button>
+		<button mat-raised-button class="button end-event-button" [routerLink]="['/event_summary']">End event</button>
 	</div>
 	<!-- <span class="avatar"> + </span> -->
 	<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>

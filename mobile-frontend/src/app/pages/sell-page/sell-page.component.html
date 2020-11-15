@@ -1,0 +1,50 @@
+<h1> Event summary</h1>
+<div class="info">
+	{{event.location}}
+</div>
+<div class="info">
+	{{event.date}}
+</div>
+<hr/>
+<h2> Results </h2>
+<div class="row" >
+	<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
+	<div class="col-10 col-lg-4 col-md-6 col-sm-10">
+		<img class="event-image" [src]="event.image" alt="">
+		<br/>
+		<br/>
+		<mat-card *ngFor="let good of event.goods">
+			<div class="left">
+				{{good.name}}
+			</div>
+			<div class="right">
+				{{good.weight}}
+			</div>
+		</mat-card>
+	</div>
+	<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
+</div>
+<hr/>
+<h2> Wastepoints </h2>
+<div class="row" >
+	<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
+	<div class="col-10 col-lg-4 col-md-6 col-sm-10">
+		<img class="event-image" src="/assets/images/badge.png" alt="">
+	<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
+	</div>
+</div>
+
+<br/>
+<hr/>
+
+<div class="row" >
+	<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
+	<div class="col-10 col-lg-4 col-md-6 col-sm-10">
+		<button mat-raised-button class="button offer-button">Offer to buyers</button>
+	</div>
+	<!-- <span class="avatar"> + </span> -->
+	<div class="col-1 col-lg-4 col-md-3 col-sm-1"></div>
+</div>
+<br/>
+<br/>
+<br/>

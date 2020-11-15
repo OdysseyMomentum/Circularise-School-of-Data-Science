@@ -31,7 +31,10 @@
 		<div class="col-10 col-lg-4 col-md-6 col-sm-10">
 			<div class="avatars">
 			<div *ngFor="let people of people" class="avatar-holder">
-				<img [src]="people.image" class="avatar">
+				<div class="container">
+					<div class="tag">--</div>
+					<img [src]="people.image" class="avatar">
+				</div>
 				<br/>
 				<label class="avatar-name">{{people.name}}</label>
 			</div>

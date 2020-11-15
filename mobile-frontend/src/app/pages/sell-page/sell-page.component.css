@@ -70,6 +70,10 @@ mat-card.active:hover{
 	cursor: pointer;
 }
 
-.sell-goods-button{
+.offer-button{
 	background-color:#add;
+}
+
+.event-image{
+	width:100%;
 }
