@@ -1,0 +1,17 @@
+server {
+    server_name market.wasteparty.org;
+    index index.html;
+    root /home/ubuntu/Circularise-School-of-Data-Science/frontend/build;
+
+    location / {
+        try_files $uri$args $uri$args/ /index.html;
+    }
+
+    listen [::]:443; # manually changed;  ssl ipv6only=on; # managed by Certbot
+    ssl on;  # manually changed;
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/market.wasteparty.org/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/market.wasteparty.org/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+}

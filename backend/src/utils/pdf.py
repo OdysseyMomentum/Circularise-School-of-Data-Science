@@ -3,6 +3,7 @@ import pdfkit
 import io
 import qrcode
 
+from typing import Optional
 from pydantic import BaseModel
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 

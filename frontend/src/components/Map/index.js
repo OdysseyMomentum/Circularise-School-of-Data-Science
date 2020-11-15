@@ -35,7 +35,7 @@ export default class Map extends React.Component {
       .setHTML(
         `<h3>Additional infos</h3>
         <h4>
-          ${currentFeature.properties.address}
+          ${currentFeature.properties.location}
         </h4>
         <h4>
           ${currentFeature.properties.weight}kg
